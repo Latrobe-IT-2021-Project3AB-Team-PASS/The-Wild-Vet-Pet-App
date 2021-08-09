@@ -51,4 +51,14 @@
         android:title="Basic decision support system"
         android:icon="@drawable/ic_support"/>
 
+    <item
+        android:id="@+id/miItem11"
+        android:title="HomePage"
+        android:icon="@drawable/ic_homepage"/>
+
+    <item
+        android:id="@+id/miItem12"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout"/>
+
 </menu>

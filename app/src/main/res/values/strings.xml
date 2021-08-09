@@ -31,4 +31,8 @@
     <string name="LogoS">LogoS</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="full_name">full_name</string>
+    <string name="Username">Username</string>
+    <string name="nameTitle">nameTitle</string>
+    <string name="Name_Title">Name_Title</string>
 </resources>

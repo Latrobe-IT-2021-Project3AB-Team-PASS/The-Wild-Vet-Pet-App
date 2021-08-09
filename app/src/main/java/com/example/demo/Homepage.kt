@@ -38,6 +38,22 @@ class Homepage : AppCompatActivity(){
                     "Click Item 2", Toast.LENGTH_SHORT).show()
                 R.id.miItem3 -> Toast.makeText(applicationContext,
                     "Click Item 3", Toast.LENGTH_SHORT).show()
+                R.id.miItem4 -> Toast.makeText(applicationContext,
+                    "Click Item 4", Toast.LENGTH_SHORT).show()
+                R.id.miItem5 -> Toast.makeText(applicationContext,
+                    "Click Item 5", Toast.LENGTH_SHORT).show()
+                R.id.miItem6 -> Toast.makeText(applicationContext,
+                    "Click Item 6", Toast.LENGTH_SHORT).show()
+                R.id.miItem7 -> Toast.makeText(applicationContext,
+                    "Click Item 7", Toast.LENGTH_SHORT).show()
+                R.id.miItem8 -> Toast.makeText(applicationContext,
+                    "Click Item 8", Toast.LENGTH_SHORT).show()
+                R.id.miItem9 -> Toast.makeText(applicationContext,
+                    "Click Item 9", Toast.LENGTH_SHORT).show()
+                R.id.miItem10 -> Toast.makeText(applicationContext,
+                    "Click Item 10", Toast.LENGTH_SHORT).show()
+                R.id.miItem11 -> startActivity(Intent(this, Homepage::class.java))
+                R.id.miItem12 -> startActivity(Intent(this, MainActivity::class.java))
             }
             true
         }
