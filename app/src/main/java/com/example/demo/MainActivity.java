@@ -1,15 +1,6 @@
 package com.example.demo;
 
 import android.content.Intent;
-<<<<<<< HEAD
-import android.os.Bundle;
-import android.view.View;
-import android.view.WindowManager;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
-
-=======
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -32,28 +23,11 @@ public class MainActivity extends AppCompatActivity {
     String diver,url,user,pass;
 
 
->>>>>>> pr/3
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
-    }
-
-    public void LoginToHomepage(View view){
-
-        Intent intent = new Intent(getApplicationContext(),Homepage.class);
-        startActivity(intent);
-
-    }
-
-    public void callToSignup(View view){
-
-        Intent intent = new Intent(getApplicationContext(),Signup.class);
-        startActivity(intent);
-
-=======
         Account_username = (TextInputLayout) findViewById(R.id.accountUsername);
         Account_password = (TextInputLayout) findViewById(R.id.accountPassword);
         btn_login = (Button) findViewById(R.id.btnLogin);
@@ -161,6 +135,5 @@ public class MainActivity extends AppCompatActivity {
             }
             return z;
         }
->>>>>>> pr/3
     }
 }

@@ -7,8 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-<<<<<<< HEAD
-=======
 
         <color name="colorPrimary">#3F51B5</color>
         <color name="colorPrimaryDark">#303F9F</color>
@@ -204,5 +202,4 @@
 
         <color name="system_default_text_color">#969696</color>
 
->>>>>>> pr/3
 </resources>
