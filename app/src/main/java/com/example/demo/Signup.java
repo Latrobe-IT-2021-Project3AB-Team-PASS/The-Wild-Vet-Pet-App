@@ -1,5 +1,6 @@
 package com.example.demo;
 
+<<<<<<< HEAD
 import android.accounts.Account;
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -17,6 +18,21 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+=======
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+import java.sql.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+>>>>>>> pr/3
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Signup extends AppCompatActivity {
@@ -30,6 +46,11 @@ public class Signup extends AppCompatActivity {
     RadioGroup Account_nametitle;
     RadioButton selectedNametitle;
 
+<<<<<<< HEAD
+=======
+    Connection con;
+
+>>>>>>> pr/3
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +68,16 @@ public class Signup extends AppCompatActivity {
         Account_username = findViewById(R.id.regUsername);
         Account_password = findViewById(R.id.regPassword);
         Account_nametitle = findViewById(R.id.nameTitle);
+<<<<<<< HEAD
+=======
+        selectedNametitle = findViewById(Account_nametitle.getCheckedRadioButtonId());
+>>>>>>> pr/3
         Account_fullname = findViewById(R.id.regFullname);
         Account_email = findViewById(R.id.regEmail);
         Account_address = findViewById(R.id.regAddress);
         Account_phone = findViewById(R.id.regPhone);
 
+<<<<<<< HEAD
 
     }
 
@@ -81,6 +107,99 @@ public class Signup extends AppCompatActivity {
         }
 
     }
+=======
+        btnRegSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                    new Signup.registerUser().execute();
+
+                }
+            });
+    }
+
+    public class registerUser extends AsyncTask<String,String,String>{
+
+        String z = "";
+        Boolean isSuccess = false;
+
+        @Override
+        protected void onPreExecute() {
+            if (!validateUsername() | !validatePassword() | !validateNametitle() | !validateFullname() | !validateEmail() | !validateAddress() | !validatePhone()) {
+                return;
+            }else{
+                Toast.makeText(Signup.this, "Sending Data to Database", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (isSuccess){
+                Toast.makeText(Signup.this, "SignUp Sucessful", Toast.LENGTH_SHORT).show();
+                Account_username.getEditText().setText("");
+                Account_password.getEditText().setText("");
+                Account_fullname.getEditText().setText("");
+                Account_email.getEditText().setText("");
+                Account_address.getEditText().setText("");
+                Account_phone.getEditText().setText("");
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }
+
+
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                con = DBOpenHelper.getConn();
+                if (con == null){
+                    z = "Check Your Internet Connection";
+                }
+                else
+                {
+                    String sql = "INSERT INTO Account (Account_username,Account_password,Account_nameTitle,Account_fullname,Account_email,Account_address,Account_phone) VALUE ('"+Account_username.getEditText().getText()+"','"+Account_password.getEditText().getText()+"','"+Account_nametitle.getCheckedRadioButtonId()+"','"+Account_fullname.getEditText().getText()+"','"+Account_email.getEditText().getText()+"','"+Account_address.getEditText().getText()+"','"+Account_phone.getEditText().getText()+"')";
+                    Statement statement = con.createStatement();
+                    statement.executeUpdate(sql);
+                }
+            }catch(Exception e){
+                isSuccess = false;
+                z = e.getMessage();
+            }
+            return z;
+        }
+    }
+
+
+    //public void SubmitSignupForm(View view){
+
+        //if (!validateUsername() | !validatePassword() | !validateNametitle() | !validateFullname() | !validateEmail() | !validateAddress() | !validatePhone()) {
+            //return;
+        //}
+
+        //selectedNametitle = findViewById(Account_nametitle.getCheckedRadioButtonId());
+        //String _nameTitle = selectedNametitle.getText().toString();
+
+        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        //startActivity(intent);
+
+        //Add Transition
+        //Pair[] pairs = new Pair[3];
+
+        //pairs[0] = new Pair<View,String>(btnRegSubmit,"transition_regsubmit_btn");
+        //pairs[1] = new Pair<View,String>(registerTitle,"transition_title_text");
+        //pairs[2] = new Pair<View,String>(signup_description,"transition_desc_text");
+
+        //if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Signup.this,pairs);
+            //startActivity(intent,options.toBundle());
+        //}else{
+            //startActivity(intent);
+        //}
+
+    //}
+>>>>>>> pr/3
 
 
     /* Validation Function*/

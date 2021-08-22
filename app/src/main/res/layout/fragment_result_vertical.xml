@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="112dp"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/leftCardInfo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/blue_bg"
+        android:layout_marginTop="5dp"
+        >
+        <LinearLayout
+            android:id="@+id/certType_layout"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true">
+            <ImageView
+                android:id="@+id/certTypeImg"
+                android:layout_height="42dp"
+                android:layout_width="42dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/cert_qualification"
+                android:layout_centerVertical="true"
+                ></ImageView>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/certType_layout"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="18sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textAppearance="?attr/textAppearanceListItem"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/tv_answer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/certType_layout"
+            android:layout_below="@+id/tv_question"
+            android:layout_marginLeft="5dp"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textAppearance="?attr/textAppearanceListItem"
+            ></TextView>
+
+
+        <RelativeLayout
+            android:id="@+id/certIssueBtn"
+            android:layout_width="96dp"
+            android:background="@color/transparent"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/certIssueImg"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                >
+            </ImageView>
+            <!--android:src="@drawable/btn_cardissue"-->
+            <TextView
+                android:id="@+id/tv_certIssue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/certIssueImg"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:text="edit"
+                android:singleLine="true"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+            <!--<RelativeLayout
+                android:id="@+id/certLibFileDelImgBtn"
+                android:layout_width="70dp"
+                android:background="@color/transparent"
+                android:layout_height="105dp"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                >
+                <ImageView
+                    android:id="@+id/certLibFileDelImg"
+                    android:layout_height="33dp"
+                    android:layout_width="33dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="3dp"
+                    android:src="@drawable/cert_lib_unselect">
+                    </ImageView>
+            </RelativeLayout>-->
+
+
+
+
+
+
+</RelativeLayout>

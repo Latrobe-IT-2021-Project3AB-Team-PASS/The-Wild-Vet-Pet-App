@@ -245,6 +245,7 @@
             android:id="@+id/search_field"
             android:layout_width="336dp"
             android:layout_height="35dp"
+<<<<<<< HEAD
             android:background="@drawable/search_outline"
             android:drawableLeft="@drawable/ic_search"
             android:ems="10"
@@ -254,6 +255,8 @@
             android:paddingTop="5dp"
             android:paddingRight="20dp"
             android:paddingBottom="5dp"
+=======
+>>>>>>> pr/3
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
