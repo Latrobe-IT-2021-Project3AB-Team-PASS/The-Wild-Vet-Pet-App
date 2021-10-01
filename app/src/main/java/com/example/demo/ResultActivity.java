@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ResultActivity extends AppCompatActivity {
     private int mColumnCount = 1;
     private String title,date,time;
-//    private int score;
+    //    private int score;
     private TextView tvTitle,tvScore,tvDate,tvTime;
     private Button bt;
     private CardAdapter cardAdapter = null;

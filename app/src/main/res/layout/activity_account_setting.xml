@@ -79,7 +79,7 @@
     <TextView
         android:id="@+id/border_layout"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="380dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/search_outline"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,7 +89,8 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:layout_constraintVertical_bias="0.07" />
 
-    <!--UserName-->
+
+
     <LinearLayout
         android:id="@+id/UserName"
         android:layout_width="match_parent"
@@ -274,9 +275,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--Password-->
+
+    <!--address-->
+
     <LinearLayout
-        android:id="@+id/Password"
+        android:id="@+id/Address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -292,18 +295,78 @@
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
             android:gravity="center_vertical"
-            android:text="Password"
+            android:text="Address"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="right|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:gravity="right|center_vertical"
+                android:text="address detail"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_right_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--Password-->
+    <LinearLayout
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/petlist_outline"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Address"
+        app:layout_constraintVertical_bias="0.015">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:text="Password"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:gravity="right|center_vertical"
             android:orientation="vertical">
             <!--<TextView
@@ -319,20 +382,22 @@
                 android:textStyle="bold"
                 />-->
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
+
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="20dp"
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/bg_right_arrow"
-                />
+                android:background="@drawable/bg_right_arrow" />
         </LinearLayout>
     </LinearLayout>
+
 
     <!--<ImageView
         android:id="@+id/icon_edit"

@@ -45,7 +45,7 @@
                 android:background="@drawable/tittle_outline"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="Juhua's Vaccination"
+                android:text="Pet's Vaccination"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="20dp"
@@ -61,75 +61,35 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ListView
+                        android:id="@+id/lvList"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:id="@+id/detail1"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/petlist_outline"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:text="Kittens - 1st core vaccination"
-                        android:textSize="18dp"
-                        android:textStyle="bold">
+                        android:layout_height="280dp"
+                        android:descendantFocusability="blocksDescendants"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="373dp"></ListView>
 
-                    </TextView>
-
-                    <TextView
+                    <TableLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:id="@+id/detail2"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/petlist_outline"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:text="Kittens - 2nd core vaccination"
-                        android:textSize="18dp"
-                        android:textStyle="bold">
+                        android:layout_height="match_parent">
 
-                    </TextView>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:id="@+id/detail3"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/petlist_outline"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:text="Kittens - 3rd core vaccination"
-                        android:textSize="18dp"
-                        android:textStyle="bold">
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                    </TextView>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:id="@+id/detail4"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:background="@drawable/petlist_outline"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:text="Adult - booster vaccination"
-                        android:textSize="18dp"
-                        android:textStyle="bold">
-
-                    </TextView>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </TableLayout>
 
 
                 </LinearLayout>
@@ -140,28 +100,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:background="#00000000"
-                    android:drawableLeft="@drawable/ic_add"
-                    android:text="@string/add_pet"
-                    android:textColor="@color/black" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00000000"
-                    android:text="@string/delete"
-                    android:drawableLeft="@drawable/ic_delete"
-                    android:textColor="@color/black"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 

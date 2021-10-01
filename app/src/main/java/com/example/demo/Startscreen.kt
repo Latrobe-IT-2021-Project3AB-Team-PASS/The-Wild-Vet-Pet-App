@@ -13,6 +13,6 @@ class Startscreen : AppCompatActivity() {
         Handler().postDelayed({
             val intent = Intent(this@Startscreen,MainActivity::class.java)
             startActivity(intent)
-        },3000)
+        },1000)
     }
 }

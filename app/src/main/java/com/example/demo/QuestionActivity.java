@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.bean.Question;
+import com.example.demo.db.QuestionDBHelper;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -47,6 +48,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private int score = 0,index=0;
     public static List<String> anList;
     private String source;
+    private String recommendId;
     private String recommend;
     private String qid, type, que, A, B, C, D,E,F, answer, detail;
     private Button btnPre;
@@ -90,7 +92,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         btnPre.setOnClickListener(this);
         btnNext = findViewById(R.id.btn_next);
         btnNext.setOnClickListener(this);
-        tvScore =findViewById(R.id.tv_num);
         vf=findViewById(R.id.vf);
         adapter=new BaseAdapter() {
             @Override
@@ -505,6 +506,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
                 if(bb.equals(nextPos)){
                     if(nextPos.contains("FA")){
                         isLast = true;
+                        recommendId = nextPos;
                         recommend = questionList.get(i).getTitle();
                     }else {
                         index = i;
@@ -522,6 +524,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     private void saveExam() {
         Intent intent = new Intent(this, RecommendActivity.class);
+        intent.putExtra("recommendId", recommendId);
         intent.putExtra("recommend", recommend);
         intent.putExtra("resultList", answerList);
         startActivity(intent);
@@ -552,7 +555,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private void moveToItem(int t) {
         if (t != index) {
             if(t>index) {
-               int d= t-index;
+                int d= t-index;
                 for (int i = 0; i < d + 1; i++)
                     vf.showNext();
             }else if(t<index){
@@ -568,7 +571,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private void initData() {
         questionList.clear();
         questionType = getIntent().getStringExtra("type");
-        if(questionType.equals("Vomiting")){
+        if(questionType != null && questionType.equals("Vomiting")){
             Vomiting_Diarrhoea();
         }else{
             Breathing();
@@ -579,7 +582,9 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     private void Breathing() {
         questionList.clear();
-        Question question1 = new Question();
+        questionList = QuestionDBHelper.queryBreathing_QuestionDB(this);
+
+        /*Question question1 = new Question();
         question1.setId("1");// 序号，题库第几题
         question1.setTitle("Breathing");//题目
         question1.setAnswerNum(6);// 选项个数
@@ -1031,13 +1036,15 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         Question question_FA24 = new Question();
         question_FA24.setId("FA24");
         question_FA24.setTitle(" 24.");
-        questionList.add(question_FA24);
+        questionList.add(question_FA24);*/
 
     }
 
     private void Vomiting_Diarrhoea() {
         questionList.clear();
-        Question question1 = new Question();
+        questionList = QuestionDBHelper.queryVomiting_QuestionDB(this);
+
+        /*Question question1 = new Question();
         question1.setId("1");
         question1.setTitle("Vomiting/Diarrhoea");
         question1.setAnswerNum(3);
@@ -1295,7 +1302,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         Question question_FA78 = new Question();
         question_FA78.setId("FA78");
         question_FA78.setTitle("Monitor if safe to do so");
-        questionList.add(question_FA78);
+        questionList.add(question_FA78);*/
 
     }
 }

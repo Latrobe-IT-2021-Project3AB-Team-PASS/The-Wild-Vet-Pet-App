@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Declaring Server
         diver = "com.mysql.jdbc.Driver";
-        url = "jdbc:mysql://aws-thewildvet.ca1rdlo6efhz.us-east-2.rds.amazonaws.com:3306/TheWildVetDB?";
+        url = "jdbc:mysql://aws-thewildvet.ctgmk9otetzz.ap-southeast-2.rds.amazonaws.com:3306/TheWildVetDB?";
         user = "root";
         pass = "rootroot";
 
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 CheckLogin checkLogin = new CheckLogin(); // this is the Asynctask, which is used to process in background to reduce load on app process.
                 checkLogin.execute();
+
 
             }
         });
@@ -85,8 +86,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,s, Toast.LENGTH_SHORT).show();
             if (inSuccess)
             {
+
                 Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),Homepage.class);
+                String recordUserName = Account_username.getEditText().getText().toString();
+                intent.putExtra("recordUN",recordUserName); //record the account number for delivery to the next activity
                 startActivity(intent);
                 finish();
 

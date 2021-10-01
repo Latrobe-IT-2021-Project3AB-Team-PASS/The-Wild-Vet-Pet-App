@@ -74,37 +74,36 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/forget_btn"
-                    android:text="@string/forget_password"
-                    android:textColor="@color/black"
-                    android:onClick="ForgetPasswordBtn"
-                    android:background="#00000000" />
-
-            </RelativeLayout>
-
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:elevation="5dp"
+                android:onClick="LoginToHomepage"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:paddingRight="20dp"
                 android:paddingBottom="20dp"
                 android:text="Login"
                 android:textSize="14sp"
-                android:onClick="LoginToHomepage"
-                android:elevation="5dp"
                 tools:layout_editor_absoluteX="30dp"
                 tools:layout_editor_absoluteY="730dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/forget_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:onClick="ForgetPasswordBtn"
+                    android:text="@string/forget_password"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -128,16 +127,16 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="REGIASTER"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_marginLeft="30dp"
+                android:elevation="5dp"
+                android:onClick="callToSignup"
                 android:paddingLeft="25dp"
                 android:paddingTop="20dp"
                 android:paddingRight="25dp"
                 android:paddingBottom="20dp"
-                android:onClick="callToSignup"
-                android:elevation="5dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true" />
+                android:text="REGIASTER" />
 
         </RelativeLayout>
 

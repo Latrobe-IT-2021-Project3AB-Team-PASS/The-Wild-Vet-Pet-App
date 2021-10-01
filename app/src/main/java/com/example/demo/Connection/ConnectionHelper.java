@@ -12,7 +12,7 @@ public class ConnectionHelper {
     public Connection connectionclass()
     {
         diver = "com.mysql.cj.jdbc.Driver";
-        url = "jdbc:mysql://aws-thewildvet.ca1rdlo6efhz.us-east-2.rds.amazonaws.com:3306/TheWildVetDB?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false";
+        url = "jdbc:mysql://aws-thewildvet.ctgmk9otetzz.ap-southeast-2.rds.amazonaws.com:3306/TheWildVetDB?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false";
         user = "root";//用户名"
         password = "rootroot";//密码
 

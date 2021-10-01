@@ -10,10 +10,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.sql.*;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.sql.Connection;
+import java.sql.Statement;
 
 public class Signup extends AppCompatActivity {
 
@@ -24,7 +28,7 @@ public class Signup extends AppCompatActivity {
     //Get Data Variable
     TextInputLayout Account_username, Account_password, Account_fullname, Account_email, Account_address, Account_phone;
     RadioGroup Account_nametitle;
-    RadioButton selectedNametitle;
+    RadioButton TitleMr,TitleMiss,TitleMdm;
 
     Connection con;
 
@@ -35,6 +39,12 @@ public class Signup extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
 
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         //Hooks
         btnRegSubmit = findViewById(R.id.btnRegSubmit);
         signup_description = findViewById(R.id.signup_description);
@@ -44,18 +54,20 @@ public class Signup extends AppCompatActivity {
         //Hooks for geeting data
         Account_username = findViewById(R.id.regUsername);
         Account_password = findViewById(R.id.regPassword);
-        Account_nametitle = findViewById(R.id.nameTitle);
-        selectedNametitle = findViewById(Account_nametitle.getCheckedRadioButtonId());
+        Account_nametitle = findViewById(R.id.regNameTitle);
         Account_fullname = findViewById(R.id.regFullname);
         Account_email = findViewById(R.id.regEmail);
         Account_address = findViewById(R.id.regAddress);
         Account_phone = findViewById(R.id.regPhone);
+        TitleMr = findViewById(R.id.TitleMr);
+        TitleMiss = findViewById(R.id.TitleMiss);
+        TitleMdm = findViewById(R.id.TitleMdm);
 
         btnRegSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                    new Signup.registerUser().execute();
+                    new registerUser().execute();
 
                 }
             });
@@ -77,17 +89,14 @@ public class Signup extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-            if (isSuccess){
-                Toast.makeText(Signup.this, "SignUp Sucessful", Toast.LENGTH_SHORT).show();
-                Account_username.getEditText().setText("");
-                Account_password.getEditText().setText("");
-                Account_fullname.getEditText().setText("");
-                Account_email.getEditText().setText("");
-                Account_address.getEditText().setText("");
-                Account_phone.getEditText().setText("");
+            if (!isSuccess)
+            {
+                Toast.makeText(Signup.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
                 finish();
+            }else{
+                Toast.makeText(Signup.this,s, Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -95,6 +104,9 @@ public class Signup extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
+
+            String nametitle = null;
+
             try {
                 con = DBOpenHelper.getConn();
                 if (con == null){
@@ -102,7 +114,16 @@ public class Signup extends AppCompatActivity {
                 }
                 else
                 {
-                    String sql = "INSERT INTO Account (Account_username,Account_password,Account_nameTitle,Account_fullname,Account_email,Account_address,Account_phone) VALUE ('"+Account_username.getEditText().getText()+"','"+Account_password.getEditText().getText()+"','"+Account_nametitle.getCheckedRadioButtonId()+"','"+Account_fullname.getEditText().getText()+"','"+Account_email.getEditText().getText()+"','"+Account_address.getEditText().getText()+"','"+Account_phone.getEditText().getText()+"')";
+                    //Check Name Title Selected
+                    if(TitleMr.isChecked()) {
+                        nametitle = "Mr";
+                    }else if (TitleMiss.isChecked()){
+                        nametitle = "Miss";
+                    }else if (TitleMdm.isChecked()){
+                        nametitle = "Madam";
+                    }
+
+                    String sql = "INSERT INTO Account (Account_username,Account_password,Account_nameTitle,Account_fullname,Account_email,Account_address,Account_phone) VALUE ('"+Account_username.getEditText().getText().toString()+"','"+Account_password.getEditText().getText().toString()+"','"+nametitle+"','"+Account_fullname.getEditText().getText()+"','"+Account_email.getEditText().getText()+"','"+Account_address.getEditText().getText()+"','"+Account_phone.getEditText().getText()+"')";
                     Statement statement = con.createStatement();
                     statement.executeUpdate(sql);
                 }
@@ -114,34 +135,6 @@ public class Signup extends AppCompatActivity {
         }
     }
 
-
-    //public void SubmitSignupForm(View view){
-
-        //if (!validateUsername() | !validatePassword() | !validateNametitle() | !validateFullname() | !validateEmail() | !validateAddress() | !validatePhone()) {
-            //return;
-        //}
-
-        //selectedNametitle = findViewById(Account_nametitle.getCheckedRadioButtonId());
-        //String _nameTitle = selectedNametitle.getText().toString();
-
-        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        //startActivity(intent);
-
-        //Add Transition
-        //Pair[] pairs = new Pair[3];
-
-        //pairs[0] = new Pair<View,String>(btnRegSubmit,"transition_regsubmit_btn");
-        //pairs[1] = new Pair<View,String>(registerTitle,"transition_title_text");
-        //pairs[2] = new Pair<View,String>(signup_description,"transition_desc_text");
-
-        //if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            //ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(Signup.this,pairs);
-            //startActivity(intent,options.toBundle());
-        //}else{
-            //startActivity(intent);
-        //}
-
-    //}
 
 
     /* Validation Function*/
@@ -192,14 +185,27 @@ public class Signup extends AppCompatActivity {
         }
     }
 
+    //Validation Name Title
     private boolean validateNametitle(){
-        if (Account_nametitle.getCheckedRadioButtonId()==-1){
-            Toast.makeText(this,"Please Select Name Title", Toast.LENGTH_SHORT).show();
+        if(Account_nametitle.getCheckedRadioButtonId() == -1){
+            Toast.makeText(this,"Please Select Name Title!",Toast.LENGTH_SHORT).show();
             return false;
         }else{
             return true;
         }
     }
+
+    /*private boolean validateNametitle(){
+        String val = Account_nametitle.getEditText().getText().toString();
+
+        if(val.contains("Mr") ||  val.contains("Madam") ||  val.contains("Miss")){
+            return true;
+        }
+        else{
+            Account_nametitle.setError("Please fill in the right Name Title");
+            return false;
+        }
+    }*/
 
     private boolean validateFullname(){
         String val = Account_fullname.getEditText().getText().toString().trim();

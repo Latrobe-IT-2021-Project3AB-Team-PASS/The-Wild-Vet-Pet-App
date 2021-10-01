@@ -41,7 +41,7 @@ class Dss : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        navView.setNavigationItemSelectedListener {
+        /*navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.miItem1 -> startActivity(Intent(this, MyPets::class.java))
                 R.id.miItem2 -> startActivity(Intent(this, vaccination::class.java))
@@ -57,7 +57,7 @@ class Dss : AppCompatActivity() {
                 R.id.miItem12 -> startActivity(Intent(this, MainActivity::class.java))
             }
             true
-        }
+        }*/   //Bugs need to fix asap.
 
     }
 

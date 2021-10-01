@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp"
+    android:descendantFocusability="blocksDescendants"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        >
+        <!-- dip指的是像素，sp指的是字体大小 -->
+        <!--    <TextView-->
+        <!--            android:id="@+id/tvId"-->
+        <!--            android:layout_width="30dip"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="25sp"-->
+        <!--            android:gravity="left"-->
+        <!--    />-->
+
+        <TextView
+            android:id="@+id/tvLefttest"
+            android:layout_width="320dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/petlist_outline"
+            android:clickable="true"
+            android:paddingTop="5dp"
+            android:paddingBottom="1dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tvMiddletest"
+            android:layout_width="400dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@drawable/petlist_outline"
+            android:clickable="true"
+            android:paddingTop="5dp"
+            android:paddingBottom="1dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/tvRighttest"
+            android:textSize="15dp"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="1dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:background="@drawable/petlist_outline"
+            />
+
+    </LinearLayout>
+</ScrollView>

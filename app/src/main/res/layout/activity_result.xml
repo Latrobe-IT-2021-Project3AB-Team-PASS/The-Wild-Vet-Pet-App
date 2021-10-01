@@ -8,6 +8,14 @@
     android:fitsSystemWindows="true"
     >
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="270dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/the_wild_vet_logo_01" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,9 +45,10 @@
 
     <Button
         android:id="@+id/btn_startNewCase"
-        android:layout_width="300dp"
+        android:layout_width="240dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="60dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:text="Start New Case"
         android:textSize="12sp"
         app:backgroundTint="@color/colorPrimaryDark" />

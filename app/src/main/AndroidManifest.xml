@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.demo">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -12,9 +15,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo">
+        tools:replace="icon, label">
         <activity
             android:name=".AddPet"
-            android:exported="true" />
+            android:parentActivityName=".MyPets" />
+        <activity
+            android:name=".PetEdit"
+            android:parentActivityName=".PetDetails" />
+        <activity
+            android:name=".PetDetailShare"
+            android:parentActivityName=".PetDetails" />
+        <activity
+            android:name=".PetDetails"
+            android:parentActivityName=".Homepage" />
         <activity android:name=".ForgetPasswordSuccessMessage" />
         <activity android:name=".SetNewPassword" />
         <activity android:name=".Startscreen">
@@ -27,9 +40,10 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Signup" />
         <activity android:name=".Homepage" />
-        <activity android:name=".MyPets" />
+        <activity
+            android:name=".MyPets"
+            android:parentActivityName=".Homepage"/>
         <activity android:name=".ForgetPassword" />
-        <activity android:name=".runTest" />
         <activity android:name=".CheckUps" />
         <activity android:name=".CheckUpsDetail" />
         <activity android:name=".CheckUpsDetailPlus" />
@@ -48,10 +62,14 @@
         <activity android:name=".RecommendActivity" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".Subscription" />
-        <activity android:name=".PetDetails" />
-        <activity
-            android:name=".awsTest"
-            android:exported="true" />
+        <activity android:name=".AccountSetting_address" />
+        <activity android:name=".AccountSetting_email" />
+        <activity android:name=".AccountSetting_fullname" />
+        <activity android:name=".AccountSetting_password" />
+        <activity android:name=".AccountSetting_phone" />
+
+
+
 
         <meta-data
             android:name="preloaded_fonts"

@@ -56,90 +56,17 @@
                 android:layout_height="300dp"
                 android:background="@drawable/search_outline">
 
-                <LinearLayout
+                <WebView
+                    android:id="@+id/webView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="15dp"
-                            app:srcCompat="@drawable/news1" />
-
-                        <ImageView
-                            android:id="@+id/imageView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="12dp"
-                            app:srcCompat="@drawable/news2" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imageView9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginLeft="25dp"
-                            android:layout_marginTop="8dp"
-                            app:srcCompat="@drawable/news3" />
-
-                        <ImageView
-                            android:id="@+id/imageView10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="35dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="8dp"
-                            app:srcCompat="@drawable/news4" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
+                    android:layout_height="wrap_content" />
 
             </ScrollView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:background="#00000000"
-                    android:drawableLeft="@drawable/ic_add"
-                    android:text="@string/add_pet"
-                    android:textColor="@color/black" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00000000"
-                    android:text="@string/delete"
-                    android:drawableLeft="@drawable/ic_delete"
-                    android:textColor="@color/black"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"/>
-
-            </RelativeLayout>
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 

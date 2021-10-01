@@ -2,14 +2,10 @@ package com.example.demo
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.widget.CompoundButton
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.view.SwitchButton
-import kotlinx.android.synthetic.main.activity_homepage.*
 import kotlinx.android.synthetic.main.activity_homepage.drawerLayout
 import kotlinx.android.synthetic.main.activity_homepage.navView
 import kotlinx.android.synthetic.main.activity_subscription.*
@@ -32,17 +28,54 @@ class Subscription : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.miItem1 -> startActivity(Intent(this, MyPets::class.java))
-                R.id.miItem2 -> startActivity(Intent(this, vaccination::class.java))
-                R.id.miItem3 -> startActivity(Intent(this, Medication::class.java))
-                R.id.miItem4 -> startActivity(Intent(this, CheckUps::class.java))
+
+                R.id.miItem1 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, MyPets::class.java)
+                    intent.putExtra("USERNAME",sendRecord)
+                    startActivity(intent)
+                }
+                R.id.miItem2 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, vaccination::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
+                R.id.miItem3 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, Medication::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
+
+                R.id.miItem4 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, CheckUps::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem5 -> startActivity(Intent(this, News::class.java))
-                R.id.miItem6 -> startActivity(Intent(this, ParasitePrevention::class.java))
+                R.id.miItem6 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, ParasitePrevention::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem7 -> startActivity(Intent(this, Subscription::class.java))
                 R.id.miItem8 -> startActivity(Intent(this, ContactUs::class.java))
-                R.id.miItem9 -> startActivity(Intent(this, AccountSetting::class.java))
+                R.id.miItem9 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, AccountSetting::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem10 -> startActivity(Intent(this, Dss::class.java))
-                R.id.miItem11 -> startActivity(Intent(this, Homepage::class.java))
+                R.id.miItem11 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, Homepage::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem12 -> startActivity(Intent(this, MainActivity::class.java))
             }
             true
