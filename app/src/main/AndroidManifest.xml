@@ -58,9 +58,12 @@
         <activity android:name=".AccountSetting" />
         <activity android:name=".ContactUs" />
         <activity android:name=".Dss" />
-        <activity android:name=".QuestionActivity" />
-        <activity android:name=".RecommendActivity" />
-        <activity android:name=".ResultActivity" />
+        <activity android:name=".QuestionActivity"
+            android:theme="@style/AppTheme_NoAction"/>
+        <activity android:name=".RecommendActivity"
+            android:theme="@style/AppTheme_NoAction"/>
+        <activity android:name=".ResultActivity"
+            android:theme="@style/AppTheme_NoAction"/>
         <activity android:name=".Subscription" />
         <activity android:name=".AccountSetting_address" />
         <activity android:name=".AccountSetting_email" />
