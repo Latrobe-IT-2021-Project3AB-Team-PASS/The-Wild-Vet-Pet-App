@@ -10,14 +10,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.sql.*;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.sql.Connection;
-import java.sql.Statement;
 
 public class Signup extends AppCompatActivity {
 
@@ -39,11 +37,11 @@ public class Signup extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
 
-        // calling the action bar
+        /*// calling the action bar
         ActionBar actionBar = getSupportActionBar();
 
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);*/
 
         //Hooks
         btnRegSubmit = findViewById(R.id.btnRegSubmit);
@@ -67,10 +65,10 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    new registerUser().execute();
+                new Signup.registerUser().execute();
 
-                }
-            });
+            }
+        });
     }
 
     public class registerUser extends AsyncTask<String,String,String>{
@@ -164,11 +162,11 @@ public class Signup extends AppCompatActivity {
     private boolean validatePassword(){
         String val = Account_password.getEditText().getText().toString().trim();
         String checkPassword = "^(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
-                //"^"+
-                //"(?=.*[a-zA-Z])" +              //any letter
-                //"(?=\\S+$)" +                   //no white spaces
-                //"(.{4,})" +                     //at least 4 characters
-                //"$";
+        //"^"+
+        //"(?=.*[a-zA-Z])" +              //any letter
+        //"(?=\\S+$)" +                   //no white spaces
+        //"(.{4,})" +                     //at least 4 characters
+        //"$";
 
         if(val.isEmpty()){
             Account_password.setError("Field can not be empty");
@@ -273,11 +271,13 @@ public class Signup extends AppCompatActivity {
 
     }
 
+    @Override
     public void onBackPressed() {
         Intent back = new Intent(Signup.this,MainActivity.class);
         startActivity(back);
         finish();
     }
+
 
 
 

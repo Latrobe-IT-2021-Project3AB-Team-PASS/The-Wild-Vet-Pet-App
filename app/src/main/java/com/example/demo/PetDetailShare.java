@@ -1,37 +1,58 @@
 package com.example.demo;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.FileProvider;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.util.Base64;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+import com.google.android.material.navigation.NavigationView;
+
+import net.sourceforge.jtds.jdbc.Support;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.OutputStream;
+import java.sql.*;
 
 public class PetDetailShare extends AppCompatActivity {
+
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
 
     TextView Pet_Name, Pet_Type, Pet_Gender, Pet_DOB, Pet_Desexed, Pet_Notes;
     ImageView Pet_Image,imageView;
@@ -46,7 +67,7 @@ public class PetDetailShare extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_detail_share);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        /*getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         pd = new ProgressDialog(PetDetailShare.this);
 
@@ -150,6 +171,99 @@ public class PetDetailShare extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        setUpToolbar();
+        navigationView = (NavigationView) findViewById(R.id.navigation_menu);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.nav_pets:
+                        //String username = getIntent().getStringExtra("USERNAME");
+                        Intent intent = new Intent(PetDetailShare.this, MyPets.class);
+                        intent.putExtra("USERNAME",username);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.nav_vaccination:
+                        Intent intent1 = new Intent(PetDetailShare.this, vaccination.class);
+                        intent1.putExtra("recordUN",username);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.nav_medication:
+                        Intent intent2 = new Intent(PetDetailShare.this, Medication.class);
+                        intent2.putExtra("recordUN",username);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.nav_checkup:
+                        Intent intent3 = new Intent(PetDetailShare.this, CheckUps.class);
+                        intent3.putExtra("recordUN",username);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.nav_news:
+                        Intent intent4 = new Intent(PetDetailShare.this, News.class);
+                        intent4.putExtra("recordUN",username);
+                        startActivity(intent4);
+                        break;
+
+                    case R.id.nav_parasite:
+                        Intent intent5 = new Intent(PetDetailShare.this, ParasitePrevention.class);
+                        intent5.putExtra("recordUN",username);
+                        startActivity(intent5);
+                        break;
+
+                    case R.id.nav_subscr:
+                        Intent intent6 = new Intent(PetDetailShare.this, Subscription.class);
+                        intent6.putExtra("recordUN",username);
+                        startActivity(intent6);
+                        break;
+
+                    case R.id.nav_contact:
+                        Intent intent7 = new Intent(PetDetailShare.this, ContactUs.class);
+                        intent7.putExtra("recordUN",username);
+                        startActivity(intent7);
+                        break;
+
+                    case R.id.nav_setting:
+                        Intent intent8 = new Intent(PetDetailShare.this, AccountSetting.class);
+                        intent8.putExtra("recordUN",username);
+                        startActivity(intent8);
+                        break;
+
+                    case R.id.nav_support:
+                        Intent intent9 = new Intent(PetDetailShare.this, Support.class);
+                        intent9.putExtra("recordUN",username);
+                        startActivity(intent9);
+                        break;
+
+                    case  R.id.nav_home:
+                        Intent intent10 = new Intent(PetDetailShare.this, Homepage.class);
+                        intent10.putExtra("recordUN",username);
+                        startActivity(intent10);
+                        break;
+
+                    case R.id.nav_logout:
+                        Intent intent11 = new Intent(PetDetailShare.this,MainActivity.class);
+                        intent11.putExtra("recordUN",username);
+                        startActivity(intent11);
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+    public void setUpToolbar() {
+        drawerLayout = findViewById(R.id.drawerLayout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
     }
 
     // this event will enable the back
@@ -163,5 +277,17 @@ public class PetDetailShare extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        String username = getIntent().getStringExtra("USERNAME");
+        String petname = getIntent().getStringExtra("PETNAME");
+        String petid = getIntent().getStringExtra("PETID");
+        Intent back = new Intent(PetDetailShare.this,PetDetails.class);
+        back.putExtra("USERNAME", username);
+        back.putExtra("PETNAME",petname);
+        back.putExtra("recordUN",username);
+        startActivity(back);
     }
 }

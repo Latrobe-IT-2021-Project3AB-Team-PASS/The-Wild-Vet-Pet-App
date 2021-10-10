@@ -18,15 +18,19 @@
         tools:replace="icon, label">
         <activity
             android:name=".AddPet"
+            android:theme="@style/Theme.Demo.NoActionBar"
             android:parentActivityName=".MyPets" />
         <activity
             android:name=".PetEdit"
+            android:theme="@style/Theme.Demo.NoActionBar"
             android:parentActivityName=".PetDetails" />
         <activity
             android:name=".PetDetailShare"
+            android:theme="@style/Theme.Demo.NoActionBar"
             android:parentActivityName=".PetDetails" />
         <activity
             android:name=".PetDetails"
+            android:theme="@style/Theme.Demo.NoActionBar"
             android:parentActivityName=".Homepage" />
         <activity android:name=".ForgetPasswordSuccessMessage" />
         <activity android:name=".SetNewPassword" />
@@ -42,6 +46,7 @@
         <activity android:name=".Homepage" />
         <activity
             android:name=".MyPets"
+            android:theme="@style/Theme.Demo.NoActionBar"
             android:parentActivityName=".Homepage"/>
         <activity android:name=".ForgetPassword" />
         <activity android:name=".CheckUps" />

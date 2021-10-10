@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import static com.example.demo.R.id;
-import static com.example.demo.R.layout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
@@ -13,12 +13,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+import static com.example.demo.R.*;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.w3c.dom.Text;
+
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SetNewPassword extends AppCompatActivity {
@@ -72,10 +74,10 @@ public class SetNewPassword extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-                Toast.makeText(SetNewPassword.this, "Set New Password Successful", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(),ForgetPasswordSuccessMessage.class);
-                startActivity(intent);
-                finish();
+            Toast.makeText(SetNewPassword.this, "Set New Password Successful", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(),ForgetPasswordSuccessMessage.class);
+            startActivity(intent);
+            finish();
         }
 
         @Override
