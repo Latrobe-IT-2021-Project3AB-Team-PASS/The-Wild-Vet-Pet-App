@@ -14,6 +14,7 @@ public class Vaccination_pet {
     private String name;
     private String image;
     private Date date;
+    private String accountname;
     //private Integer id;
     //private String sex;
     //private Integer age;
@@ -58,6 +59,12 @@ public class Vaccination_pet {
         this.date = date;
     }
 
+    public String getAccountname() {
+        return accountname;
+    }
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
+    }
 
 
     /*public String getSex() {

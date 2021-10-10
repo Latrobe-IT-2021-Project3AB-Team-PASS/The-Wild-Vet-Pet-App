@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,s, Toast.LENGTH_SHORT).show();
             if (inSuccess)
             {
-
                 Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),Homepage.class);
                 String recordUserName = Account_username.getEditText().getText().toString();
@@ -128,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            z = "Invalid Credentials!";
+                            z = "Invalid detail!";
                             inSuccess = false;
                         }
                     }
@@ -139,5 +138,10 @@ public class MainActivity extends AppCompatActivity {
             }
             return z;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

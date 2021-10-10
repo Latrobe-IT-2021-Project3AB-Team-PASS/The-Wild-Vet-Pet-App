@@ -27,19 +27,20 @@ class CheckUpsDetail : AppCompatActivity() {
         //跳转页面
         setContentView(R.layout.activity_check_ups_detail)
 
-        val sendRecord = intent.getStringExtra("petid")
+        val sendid = intent.getStringExtra("petid")
         val sentName = intent.getStringExtra("name")
+        val sendRecord = intent.getStringExtra("recordUN")
 
         val textView1 = findViewById<View>(R.id.PetTittle) as TextView
         textView1.text = sentName + "'s Check-ups"
 
         //val sql = "select * from pet"
         //val sql = "select Pet_id,Pet_image,Pet_name from Pet where Account_username = '$sendRecord'";
-        val sql = "select Pet_id,Vet_fullname,Checkups_type,Checkups_date,Checkups_notes from Checkups where Pet_id = '$sendRecord'";
+        val sql = "select Pet_id,Vet_fullname,Checkups_type,Checkups_date,Checkups_notes,Account_username from Checkups where Pet_id = '$sendid'";
         //val sql = "select * from testpet"
         //  数据库获取 数据
         findPets(sql)
-        println("petid=" + sendRecord)
+        println("petid=" + sendid)
         println(ChecList)
 
 
@@ -137,6 +138,7 @@ class CheckUpsDetail : AppCompatActivity() {
                     checku.checkupstype = resultSet.getString("Checkups_type")
                     checku.checkupsdate = resultSet.getDate("Checkups_date")
                     checku.checkupsnotes = resultSet.getString("Checkups_notes")
+                    checku.accountname = resultSet.getString("Account_username")
                     //pet.sex = resultSet.getString("sex")
                     //pet.age = resultSet.getInt("age")
                     //pet.type = resultSet.getString("type")

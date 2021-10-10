@@ -28,7 +28,7 @@ class CheckUpsDetailPlus : AppCompatActivity() {
         textView2.text = bundle.getString("checkupsdate")
         textView3.text = bundle.getString("vetfullname")
         textView4.text = bundle.getString("checkupsnotes")
-
+        val sendRecord = bundle.getString("recordUN")
 
 
 

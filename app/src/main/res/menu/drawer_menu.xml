@@ -34,7 +34,7 @@
             android:title="Contact Us"
             android:icon="@drawable/ic_contact_us">
         </item>
-        </group>
+    </group>
 
 
     <group android:checkableBehavior="single"

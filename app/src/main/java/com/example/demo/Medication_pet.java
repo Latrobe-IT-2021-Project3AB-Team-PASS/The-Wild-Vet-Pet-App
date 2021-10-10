@@ -14,6 +14,7 @@ public class Medication_pet {
     private String name;
     private String image;
     private Date date;
+    private String accountname;
     //private Integer id;
     //private String sex;
     //private Integer age;
@@ -56,6 +57,13 @@ public class Medication_pet {
     }
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getAccountname() {
+        return accountname;
+    }
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
 

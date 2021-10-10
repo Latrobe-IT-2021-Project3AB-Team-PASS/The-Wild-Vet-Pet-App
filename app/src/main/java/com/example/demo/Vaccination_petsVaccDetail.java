@@ -17,6 +17,7 @@ public class Vaccination_petsVaccDetail {
     private String vaccproductname;
     private String vaccname;
     private Date vaccdueday;
+    private String accountname;
     //private Integer id;
     //private String sex;
     //private Integer age;
@@ -63,6 +64,13 @@ public class Vaccination_petsVaccDetail {
     }
     public void setVaccdueday(Date vaccdueday) {
         this.vaccdueday = vaccdueday;
+    }
+
+    public String getAccountname() {
+        return accountname;
+    }
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
 

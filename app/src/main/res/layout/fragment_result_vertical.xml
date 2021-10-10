@@ -90,24 +90,24 @@
 
     </RelativeLayout>
 
-            <!--<RelativeLayout
-                android:id="@+id/certLibFileDelImgBtn"
-                android:layout_width="70dp"
-                android:background="@color/transparent"
-                android:layout_height="105dp"
-                android:layout_alignParentRight="true"
-                android:visibility="gone"
-                >
-                <ImageView
-                    android:id="@+id/certLibFileDelImg"
-                    android:layout_height="33dp"
-                    android:layout_width="33dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="3dp"
-                    android:src="@drawable/cert_lib_unselect">
-                    </ImageView>
-            </RelativeLayout>-->
+    <!--<RelativeLayout
+        android:id="@+id/certLibFileDelImgBtn"
+        android:layout_width="70dp"
+        android:background="@color/transparent"
+        android:layout_height="105dp"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:id="@+id/certLibFileDelImg"
+            android:layout_height="33dp"
+            android:layout_width="33dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3dp"
+            android:src="@drawable/cert_lib_unselect">
+            </ImageView>
+    </RelativeLayout>-->
 
 
 

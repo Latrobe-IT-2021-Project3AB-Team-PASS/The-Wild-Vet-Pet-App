@@ -55,7 +55,7 @@ public class CheckUpsList extends BaseAdapter{
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.checkups_list,null);
-            viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
+            //viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
             viewHolder.textView = (TextView) view.findViewById(R.id.tvName);
             view.setTag(viewHolder);
         }else {
@@ -74,6 +74,7 @@ public class CheckUpsList extends BaseAdapter{
                 Bundle bundle = new Bundle();
                 bundle.putString("petid",pet.getId());
                 bundle.putString("name",pet.getName());
+                bundle.putString("recordUN",pet.getAccountname());
                 //bundle.putString("age",pet.getAge().toString());
                 //bundle.putString("type", pet.getType());
                 //String sex = "1".equals(pet.getSex())?"男":"女";
@@ -84,7 +85,7 @@ public class CheckUpsList extends BaseAdapter{
                 context.startActivity(intent);
             }
         });
-        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -99,7 +100,7 @@ public class CheckUpsList extends BaseAdapter{
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
-        });
+        });*/
 
 
         return view;

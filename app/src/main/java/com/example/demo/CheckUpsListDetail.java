@@ -80,7 +80,7 @@ public class CheckUpsListDetail extends BaseAdapter {
                 bundle.putString("checkupstype",checku.getCheckupstype());
                 bundle.putString("checkupsdate",checku.getCheckupsdate().toString());
                 bundle.putString("checkupsnotes",checku.getCheckupsnotes());
-
+                bundle.putString("recordUN",checku.getAccountname());
                 Intent intent = new Intent(context, CheckUpsDetailPlus.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtras(bundle);
@@ -96,7 +96,7 @@ public class CheckUpsListDetail extends BaseAdapter {
                 bundle.putString("checkupstype",checku.getCheckupstype());
                 bundle.putString("checkupsdate",checku.getCheckupsdate().toString());
                 bundle.putString("checkupsnotes",checku.getCheckupsnotes());
-
+                bundle.putString("recordUN",checku.getAccountname());
                 Intent intent = new Intent(context, CheckUpsDetailPlus.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtras(bundle);

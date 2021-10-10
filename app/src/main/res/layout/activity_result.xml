@@ -1,57 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true"
+    android:id="@+id/drawerLayout"
     >
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="270dp"
-        android:layout_height="90dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/the_wild_vet_logo_01" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/picture_frame"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
-        <TextView
-            android:id="@+id/tv_title1"
+        android:fitsSystemWindows="true"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/drawer_layout_rl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/purple_500"
+            app:titleTextColor="@color/white"
+            app:subtitleTextColor="@color/white"
+            >
+            <!--android:background="@color/purple_200"
+            app:title="主标题"-->
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="270dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/the_wild_vet_logo_01" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@android:drawable/picture_frame"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tv_title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="8dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/fragment_result_vertical"/>
+
+        <Button
+            android:id="@+id/btn_startNewCase"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:padding="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="18sp" />
+            android:text="Start New Case"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/colorPrimaryDark" />
+
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_weight="1"
-        app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/fragment_result_vertical"/>
 
-    <Button
-        android:id="@+id/btn_startNewCase"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:text="Start New Case"
-        android:textSize="12sp"
-        app:backgroundTint="@color/colorPrimaryDark" />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
 
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
 

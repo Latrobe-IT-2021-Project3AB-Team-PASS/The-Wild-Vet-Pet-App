@@ -27,12 +27,13 @@ class ParasitePreventionDetail : AppCompatActivity() {
 
         val sendId = intent.getStringExtra("petid")
         val sentName = intent.getStringExtra("petname")
+        val sendRecord = intent.getStringExtra("recordUN")
 
         val textView1 = findViewById<View>(R.id.PetTittle) as TextView
         textView1.text = sentName + "'s Parasite Prevention"
 
         //select Pet_id,Medi_product, Medi_purchasedate from Medication where Pet_id = '$sendId'
-        val sql = "select Pet_id,PP_date,PP_product,PP_fuequency from ParasitePrevention where Pet_id = '$sendId'";
+        val sql = "select Pet_id,PP_date,PP_product,PP_fuequency,Account_username from ParasitePrevention where Pet_id = '$sendId'";
         //val sql = "select * from testpet"
         //  数据库获取 数据
         findPets(sql)
@@ -130,6 +131,7 @@ class ParasitePreventionDetail : AppCompatActivity() {
                     PP.ppdate = resultSet.getDate("PP_date")
                     PP.ppproduct = resultSet.getString("PP_product")
                     PP.ppfuequency = resultSet.getString("PP_fuequency")
+                    PP.accountname = resultSet.getString("Account_username")
                     //pet.sex = resultSet.getString("sex")
                     //pet.age = resultSet.getInt("age")
                     //pet.type = resultSet.getString("type")

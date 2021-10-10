@@ -25,7 +25,8 @@ class VaccinationDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //跳转页面
         setContentView(R.layout.activity_vaccination_detail)
-        val sendRecord = intent.getStringExtra("petid")
+        val sentid = intent.getStringExtra("petid")
+        val sendRecord = intent.getStringExtra("recordUN")
         val sentName = intent.getStringExtra("name")
 
         val textView1 = findViewById<View>(R.id.PetTittle) as TextView
@@ -35,11 +36,11 @@ class VaccinationDetail : AppCompatActivity() {
 
         //val sql = "select * from pet"
         //val sql = "select Pet_id,Pet_image,Pet_name from Pet where Account_username = '$sendRecord'";
-        val sql = "select Pet_id,Vacc_type,Vacc_date,Vacc_productname,Vacc_name,Vacc_dueday from Vaccination where Pet_id = '$sendRecord'";
+        val sql = "select Pet_id,Vacc_type,Vacc_date,Vacc_productname,Vacc_name,Vacc_dueday,Account_username from Vaccination where Pet_id = '$sentid'";
         //val sql = "select * from testpet"
         //  数据库获取 数据
         findPets(sql)
-        println("petid=" + sendRecord)
+        println("petid=" + sentid)
         println(petList)
         // 自定义 适配器
         val VaccinationListDetail: VaccinationListDetail = VaccinationListDetail(this,petList)
@@ -143,6 +144,8 @@ class VaccinationDetail : AppCompatActivity() {
                     pet.vaccproductname = resultSet.getString("Vacc_productname")
                     pet.vaccname = resultSet.getString("Vacc_name")
                     pet.vaccdueday = resultSet.getDate("Vacc_dueday")
+                    pet.accountname = resultSet.getString("Account_username")
+
                     //pet.sex = resultSet.getString("sex")
                     //pet.age = resultSet.getInt("age")
                     //pet.type = resultSet.getString("type")

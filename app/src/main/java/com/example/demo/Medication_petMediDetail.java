@@ -14,6 +14,7 @@ public class Medication_petMediDetail {
     private String id;
     private String mediproduct;
     private Date medipurchasedate;
+    private String accountname;
 
 
     public String getId() {
@@ -35,6 +36,13 @@ public class Medication_petMediDetail {
     }
     public void setMedipurchasedate(Date medipurchasedate) {
         this.medipurchasedate = medipurchasedate;
+    }
+
+    public String getAccountname() {
+        return accountname;
+    }
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
     @Override

@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/drawable-v21/ic_menu_slideshow.xml" value="0.35989583333333336" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.35989583333333336" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/font/raleway.xml" value="0.37395833333333334" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/font/raleway_extrabold.xml" value="0.37395833333333334" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/font/raleway_semibold.xml" value="0.37395833333333334" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/account_setting_address.xml" value="0.26875" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/account_setting_email.xml" value="0.26875" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/account_setting_fullname.xml" value="0.4" />
@@ -42,17 +47,24 @@
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/checkups_list.xml" value="0.37182971014492755" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/checkups_list_detail.xml" value="0.37182971014492755" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/fragment_result_vertical.xml" value="0.34556159420289856" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/header.xml" value="0.3328804347826087" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/medication_list.xml" value="0.3759057971014493" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/medication_list_detail.xml" value="0.4" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/nav_header.xml" value="0.23020833333333332" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/parasite_prevention_list.xml" value="0.31927083333333334" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/parasite_prevention_list_detail.xml" value="0.31927083333333334" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/petlist_layout.xml" value="0.3328804347826087" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/que_content.xml" value="0.23020833333333332" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/queitem.xml" value="0.375" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/test12312.xml" value="0.4036458333333333" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/vaccination_list.xml" value="0.375" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/vaccination_list_detail.xml" value="0.4" />
         <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/layout/vaccination_list_detail_plus.xml" value="0.2703125" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/menu/activity_main_drawer.xml" value="0.34375" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/menu/drawer_menu.xml" value="0.34375" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/menu/medication.xml" value="0.2526041666666667" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/menu/nav_drawer_menu.xml" value="0.34375" />
+        <entry key="..\:/App_project/The-Wild-Vet-Pet-App/app/src/main/res/menu/que.xml" value="0.34375" />
       </map>
     </option>
   </component>

@@ -63,7 +63,11 @@ class AccountSetting_fullname : AppCompatActivity(){
             println("The new full name : " + NewList[0].username)
             val textView2 = findViewById<View>(R.id.tv_UserName) as TextView
             textView2.text = NewList[0].username
-            Toast.makeText(this,"Update success",Toast.LENGTH_LONG).show()
+            //Toast.makeText(this,"Update success",Toast.LENGTH_LONG).show()
+            //val sendRecord = intent.getStringExtra("username")
+            //val intent = Intent(this, AccountSetting::class.java)
+            //intent.putExtra("recordUN",sendRecord)
+            //startActivity(intent)
         })
 
 

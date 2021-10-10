@@ -12,6 +12,7 @@ public class CheckUps_pet {
     private String id;
     private String name;
     private String image;
+    private String accountname;
 
     public String getId() {
         return id;
@@ -34,6 +35,13 @@ public class CheckUps_pet {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getAccountname() {
+        return accountname;
+    }
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
     @Override

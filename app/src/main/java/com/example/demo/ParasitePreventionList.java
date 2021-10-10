@@ -48,7 +48,7 @@ public class ParasitePreventionList extends BaseAdapter {
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.parasite_prevention_list,null);
-            viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
+            //viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
             viewHolder.textView = (TextView) view.findViewById(R.id.tvName);
             view.setTag(viewHolder);
         }else {
@@ -67,6 +67,7 @@ public class ParasitePreventionList extends BaseAdapter {
                 Bundle bundle = new Bundle();
                 bundle.putString("petid",PP.getId());
                 bundle.putString("petname",PP.getName());
+                bundle.putString("recordUN",PP.getAccountname());
                 //bundle.putString("age",pet.getAge().toString());
                 //bundle.putString("type", pet.getType());
                 //String sex = "1".equals(pet.getSex())?"男":"女";
@@ -77,7 +78,7 @@ public class ParasitePreventionList extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
-        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
@@ -92,7 +93,7 @@ public class ParasitePreventionList extends BaseAdapter {
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
-        });
+        });*/
 
 
         return view;

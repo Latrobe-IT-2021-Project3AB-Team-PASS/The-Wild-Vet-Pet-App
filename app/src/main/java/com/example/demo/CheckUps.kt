@@ -27,7 +27,7 @@ class CheckUps : AppCompatActivity() {
         val sendRecord = intent.getStringExtra("recordUN")
 
         //val sql = "select * from pet"
-        val sql = "select Pet_id,Pet_image,Pet_name from Pet where Account_username = '$sendRecord'";
+        val sql = "select Pet_id,Pet_image,Pet_name,Account_username from Pet where Account_username = '$sendRecord'";
         //val sql = "select * from testpet"
         //  数据库获取 数据
 
@@ -129,6 +129,7 @@ class CheckUps : AppCompatActivity() {
                     pet.id = resultSet.getString("Pet_id")
                     pet.image = resultSet.getString("Pet_image")
                     pet.name = resultSet.getString("Pet_name")
+                    pet.accountname = resultSet.getString("Account_username")
                     //pet.sex = resultSet.getString("sex")
                     //pet.age = resultSet.getInt("age")
                     //pet.type = resultSet.getString("type")

@@ -89,7 +89,11 @@ class Homepage : AppCompatActivity(){
         }
 
         btnSupport.setOnClickListener {
-            startActivity(Intent(this, Dss::class.java))
+            val sendRecord = intent.getStringExtra("recordUN")
+            val intent = Intent(this, Dss::class.java)
+            intent.putExtra("recordUN",sendRecord)
+            startActivity(intent)
+            //startActivity(Intent(this, Dss::class.java))
 //            startActivity(Intent(this, QuestionActivity::class.java))
         }
 
@@ -160,6 +164,12 @@ class Homepage : AppCompatActivity(){
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onBackPressed() {
+        val back = Intent(this@Homepage, MainActivity::class.java)
+        startActivity(back)
+        finish()
     }
 
 }

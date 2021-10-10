@@ -3,7 +3,9 @@ package com.example.demo;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterViewFlipper;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -23,12 +26,21 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 
 import com.example.bean.Question;
 import com.example.demo.db.QuestionDBHelper;
+import com.google.android.material.navigation.NavigationView;
+
+import net.sourceforge.jtds.jdbc.Support;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -67,13 +79,130 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private ArrayList<Question> questionList = new ArrayList<Question>();
     private ArrayList<Question> answerList = new ArrayList<Question>();
 
+    DrawerLayout mDrawerLayout;
+    ActionBarDrawerToggle mActionBarDrawerToggle;
+    NavigationView navigationView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            getWindow().setNavigationBarColor(getResources().getColor(R.color.purple_500));
+            getWindow().setStatusBarColor(getResources().getColor(R.color.purple_500));
+        }
+
         initData();
         initView();
+        initMenu();
     }
+
+    private void initMenu() {
+
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
+//        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open,R.string.close);
+//        mActionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+////        mActionBarDrawerToggle.setHomeAsUpIndicator(R.mipmap.ic_launcher);//channge the icon,改变图标
+//        mActionBarDrawerToggle.syncState();
+//        mDrawerLayout.setDrawerListener(mActionBarDrawerToggle);//关联 drawerlayout
+
+        Toolbar toolbar = findViewById(R.id.drawer_layout_rl_toolbar);
+        setSupportActionBar(toolbar);                   //传入ToolBar实例
+        ActionBar actionBar = getSupportActionBar();    //得到ActionBar实例
+
+        if (actionBar != null){
+            //显示导航按钮
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            //设置导航按钮图片
+            actionBar.setHomeAsUpIndicator(R.drawable.line);
+        }
+        //设置toolbar的导航按钮监听事件
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //显示侧滑菜单
+                mDrawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        navigationView = (NavigationView) findViewById(R.id.nav_View);
+//        View headView = navigationView.getHeaderView(0);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                int d = menuItem.getItemId();
+                int f = R.id.nav_pets;
+                switch (menuItem.getItemId())
+                {
+                    case R.id.nav_pets:
+                        Intent intent = new Intent(QuestionActivity.this, MyPets.class);
+                        startActivity(intent);
+                        break;
+
+                    case R.id.nav_vaccination:
+                        Intent intent1 = new Intent(QuestionActivity.this, vaccination.class);
+                        startActivity(intent1);
+                        break;
+
+                    case R.id.nav_medication:
+                        Intent intent2 = new Intent(QuestionActivity.this, Medication.class);
+                        startActivity(intent2);
+                        break;
+
+                    case R.id.nav_checkup:
+                        Intent intent3 = new Intent(QuestionActivity.this, CheckUps.class);
+                        startActivity(intent3);
+                        break;
+
+                    case R.id.nav_news:
+                        Intent intent4 = new Intent(QuestionActivity.this, News.class);
+                        startActivity(intent4);
+                        break;
+
+                    case R.id.nav_parasite:
+                        Intent intent5 = new Intent(QuestionActivity.this, ParasitePrevention.class);
+                        startActivity(intent5);
+                        break;
+
+                    case R.id.nav_subscr:
+                        Intent intent6 = new Intent(QuestionActivity.this, Subscription.class);
+                        startActivity(intent6);
+                        break;
+
+                    case R.id.nav_contact:
+                        Intent intent7 = new Intent(QuestionActivity.this, ContactUs.class);
+                        startActivity(intent7);
+                        break;
+
+                    case R.id.nav_setting:
+                        Intent intent8 = new Intent(QuestionActivity.this, AccountSetting.class);
+                        startActivity(intent8);
+                        break;
+
+                    case R.id.nav_support:
+                        Intent intent9 = new Intent(QuestionActivity.this, Support.class);
+                        startActivity(intent9);
+                        break;
+
+                    case  R.id.nav_home:
+                        Intent intent10 = new Intent(QuestionActivity.this, Homepage.class);
+                        startActivity(intent10);
+                        break;
+
+                    case R.id.nav_logout:
+                        Intent intent11 = new Intent(QuestionActivity.this,MainActivity.class);
+                        startActivity(intent11);
+                        finish();
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+
 
     private void initView() {
 //        tvTitle = findViewById(R.id.tv_title);
@@ -527,6 +656,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         intent.putExtra("recommendId", recommendId);
         intent.putExtra("recommend", recommend);
         intent.putExtra("resultList", answerList);
+        intent.putExtra("type", questionType);
         startActivity(intent);
         finish();
     }

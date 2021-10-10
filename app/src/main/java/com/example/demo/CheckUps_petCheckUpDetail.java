@@ -16,6 +16,7 @@ public class CheckUps_petCheckUpDetail {
     private String checkupstype;
     private Date checkupsdate;
     private String checkupsnotes;
+    private String accountname;
 
     public String getId() {
         return id;
@@ -50,6 +51,13 @@ public class CheckUps_petCheckUpDetail {
     }
     public void setCheckupsnotes(String checkupsnotes) {
         this.checkupsnotes = checkupsnotes;
+    }
+
+    public String getAccountname() {
+        return accountname;
+    }
+    public void setAccountname(String accountname) {
+        this.accountname = accountname;
     }
 
     @Override

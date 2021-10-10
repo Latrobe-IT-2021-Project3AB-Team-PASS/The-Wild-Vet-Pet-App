@@ -27,6 +27,7 @@ class AccountSetting : AppCompatActivity() {
 
         //select Account_username,Account_password,Account_nameTitle,Account_fullname,Account_email,Account_address,Account_phone from Account where Account_username = 'testuser';
         var username = intent.getStringExtra("recordUN")
+        val sendRecord = intent.getStringExtra("recordUN")
 
         //tv_UserName
         //val textView5 = findViewById<View>(R.id.textView19) as TextView
@@ -59,6 +60,7 @@ class AccountSetting : AppCompatActivity() {
             val intent = Intent(this, AccountSetting_fullname::class.java)
             intent.putExtra("recordId",sendUN)
             intent.putExtra("recordName",sentName)
+            intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
             //startActivity(Intent(this, vaccination::class.java))  //old
         }
@@ -72,6 +74,7 @@ class AccountSetting : AppCompatActivity() {
             val intent = Intent(this, AccountSetting_email::class.java)
             intent.putExtra("recordId",sendUN)
             intent.putExtra("recordEmail",sentEmail)
+            intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
             //startActivity(Intent(this, vaccination::class.java))  //old
         }
@@ -85,6 +88,7 @@ class AccountSetting : AppCompatActivity() {
             val intent = Intent(this, AccountSetting_phone::class.java)
             intent.putExtra("recordId",sendUN)
             intent.putExtra("recordPhone",sentPhone)
+            intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
             //startActivity(Intent(this, vaccination::class.java))  //old
         }
@@ -98,6 +102,7 @@ class AccountSetting : AppCompatActivity() {
             val intent = Intent(this, AccountSetting_address::class.java)
             intent.putExtra("recordId",sendUN)
             intent.putExtra("recordAddress",sentAddress)
+            intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
             //startActivity(Intent(this, vaccination::class.java))  //old
         }
@@ -111,6 +116,7 @@ class AccountSetting : AppCompatActivity() {
             val intent = Intent(this, AccountSetting_password::class.java)
             intent.putExtra("recordId",sendUN)
             intent.putExtra("recordPassword",sentPassword)
+            intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
             //startActivity(Intent(this, vaccination::class.java))  //old
         }
@@ -217,7 +223,7 @@ class AccountSetting : AppCompatActivity() {
         textView2.text = AccountList[0].email
         textView3.text = AccountList[0].phone
         textView4.text = AccountList[0].address
-        println("Test if the user phone can received = " + AccountList[0].phone)
+        println("Test if the new user full can received = " + AccountList[0].fullname)
 
     }
 

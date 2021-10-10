@@ -23,14 +23,6 @@
         <!--            android:gravity="left"-->
         <!--    />-->
 
-        <ImageView
-            android:clickable="true"
-            android:id="@+id/tvImage"
-            android:layout_width="45dp"
-            android:layout_height="46dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true" />
-
         <TextView
             android:clickable="true"
             android:id="@+id/tvName"

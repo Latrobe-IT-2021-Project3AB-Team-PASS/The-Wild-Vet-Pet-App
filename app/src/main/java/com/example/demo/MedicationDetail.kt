@@ -25,14 +25,16 @@ class MedicationDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medication_detail)
 
+
         val sendId = intent.getStringExtra("petid")
         val sentName = intent.getStringExtra("petname")
+        val sendRecord = intent.getStringExtra("recordUN")
 
         val textView1 = findViewById<View>(R.id.PetTittle) as TextView
         textView1.text = sentName + "'s Medication"
 
         //select Pet_id,Medi_product, Medi_purchasedate from Medication where Pet_id = '$sendId'
-        val sql = "select Pet_id,Medi_product, Medi_purchasedate from Medication where Pet_id = '$sendId'";
+        val sql = "select Pet_id,Medi_product, Medi_purchasedate,Account_username from Medication where Pet_id = '$sendId'";
         //val sql = "select * from testpet"
         //  数据库获取 数据
         findPets(sql)
@@ -132,6 +134,7 @@ class MedicationDetail : AppCompatActivity() {
                     medi.id = resultSet.getString("Pet_id")
                     medi.mediproduct = resultSet.getString("Medi_product")
                     medi.medipurchasedate = resultSet.getDate("Medi_purchasedate")
+                    medi.accountname = resultSet.getString("Account_username")
                     //pet.sex = resultSet.getString("sex")
                     //pet.age = resultSet.getInt("age")
                     //pet.type = resultSet.getString("type")

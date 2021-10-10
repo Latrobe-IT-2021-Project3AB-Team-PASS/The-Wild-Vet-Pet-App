@@ -22,7 +22,9 @@ class Dss : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        println("1")
         setContentView(R.layout.activity_dss)
+        println("2")
 
         btnBreathing.setOnClickListener {
             var intent: Intent = Intent(this@Dss, QuestionActivity::class.java)
@@ -34,6 +36,8 @@ class Dss : AppCompatActivity() {
             intent.putExtra("type", "Vomiting")
             startActivity(intent)
         }
+        var username = intent.getStringExtra("recordUN")
+        println("3 :username = " + username)
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -41,23 +45,60 @@ class Dss : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        /*navView.setNavigationItemSelectedListener {
+        navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.miItem1 -> startActivity(Intent(this, MyPets::class.java))
-                R.id.miItem2 -> startActivity(Intent(this, vaccination::class.java))
-                R.id.miItem3 -> startActivity(Intent(this, Medication::class.java))
-                R.id.miItem4 -> startActivity(Intent(this, CheckUps::class.java))
+
+                R.id.miItem1 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, MyPets::class.java)
+                    intent.putExtra("USERNAME",sendRecord)
+                    startActivity(intent)
+                }
+                R.id.miItem2 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, vaccination::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
+                R.id.miItem3 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, Medication::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
+
+                R.id.miItem4 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, CheckUps::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem5 -> startActivity(Intent(this, News::class.java))
-                R.id.miItem6 -> startActivity(Intent(this, ParasitePrevention::class.java))
+                R.id.miItem6 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, ParasitePrevention::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem7 -> startActivity(Intent(this, Subscription::class.java))
                 R.id.miItem8 -> startActivity(Intent(this, ContactUs::class.java))
-                R.id.miItem9 -> startActivity(Intent(this, AccountSetting::class.java))
+                R.id.miItem9 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, AccountSetting::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem10 -> startActivity(Intent(this, Dss::class.java))
-                R.id.miItem11 -> startActivity(Intent(this, Homepage::class.java))
+                R.id.miItem11 -> {
+                    val sendRecord = intent.getStringExtra("recordUN")
+                    val intent = Intent(this, Homepage::class.java)
+                    intent.putExtra("recordUN",sendRecord)
+                    startActivity(intent)
+                }
                 R.id.miItem12 -> startActivity(Intent(this, MainActivity::class.java))
             }
             true
-        }*/   //Bugs need to fix asap.
+        } //bugs -- need fo fix ASAP
 
     }
 

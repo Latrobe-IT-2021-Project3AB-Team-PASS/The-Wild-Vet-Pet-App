@@ -31,6 +31,8 @@ class VaccinationDetailPlus : AppCompatActivity() {
         textView4.text = bundle.getString("vaccname")
         textView5.text = bundle.getString("dueday")
 
+        val sendRecord = bundle.getString("recordUN")
+
 
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
