@@ -63,7 +63,7 @@ class AccountSetting_fullname : AppCompatActivity(){
             println("The new full name : " + NewList[0].username)
             val textView2 = findViewById<View>(R.id.tv_UserName) as TextView
             textView2.text = NewList[0].username
-            //Toast.makeText(this,"Update success",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Update success",Toast.LENGTH_LONG).show()
             //val sendRecord = intent.getStringExtra("username")
             //val intent = Intent(this, AccountSetting::class.java)
             //intent.putExtra("recordUN",sendRecord)
@@ -191,5 +191,13 @@ class AccountSetting_fullname : AppCompatActivity(){
         t.join()
     }
 
-
+    override fun onBackPressed() {
+        val sendRecord = intent.getStringExtra("recordUN")
+        val intent = Intent(this, AccountSetting::class.java)
+        intent.putExtra("recordUN",sendRecord)
+        println("starting backpress and the user name is " + sendRecord)
+        startActivity(intent)
+        //overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+        //overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 }

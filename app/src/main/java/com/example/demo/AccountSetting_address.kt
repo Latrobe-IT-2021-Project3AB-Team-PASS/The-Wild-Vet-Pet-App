@@ -176,4 +176,14 @@ class AccountSetting_address : AppCompatActivity()  {
         //enable join method，wait until thread T executed
         t.join()
     }
+
+    override fun onBackPressed() {
+        val sendRecord = intent.getStringExtra("recordUN")
+        val intent = Intent(this, AccountSetting::class.java)
+        intent.putExtra("recordUN",sendRecord)
+        println("starting backpress and the user name is " + sendRecord)
+        startActivity(intent)
+        //overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+        //overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 }

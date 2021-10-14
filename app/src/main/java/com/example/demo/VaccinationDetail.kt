@@ -162,7 +162,23 @@ class VaccinationDetail : AppCompatActivity() {
         t.join()
     }
 
-
-
-
+    /*override fun onBackPressed() {
+        //val back = Intent(this@AccountSetting, MainActivity::class.java)
+        //startActivity(back)
+        //finish()
+        /*var username = intent.getStringExtra("recordName")
+        val back = Intent(this@VaccinationDetail, vaccination::class.java)
+        back.putExtra("USERNAME", username)
+        back.putExtra("recordUN", username)
+        println("starting backpress and the user name is " + username)
+        startActivity(back)*/
+        //overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+        //overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+        val sendRecord = intent.getStringExtra("recordUN")
+        val intent = Intent(this, vaccination::class.java)
+        intent.putExtra("recordUN",sendRecord)
+        println("starting backpress and the user name is " + sendRecord)
+        startActivity(intent)
+        //finish()
+    }*/
 }

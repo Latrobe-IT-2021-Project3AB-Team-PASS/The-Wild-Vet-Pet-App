@@ -148,8 +148,4 @@ class vaccination : AppCompatActivity() {
         //调用join方法，等待线程t执行完毕
         t.join()
     }
-
-
-
-
 }

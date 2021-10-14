@@ -44,6 +44,7 @@ class AccountSetting : AppCompatActivity() {
         val textView2 = findViewById<View>(R.id.tv_email) as TextView
         val textView3 = findViewById<View>(R.id.tv_Phone) as TextView
         val textView4 = findViewById<View>(R.id.tv_address) as TextView
+        //println("----------Testing" + AccountList[0].fullname + "---------")
         textView1.text = AccountList[0].fullname
         textView2.text = AccountList[0].email
         textView3.text = AccountList[0].phone
@@ -200,32 +201,6 @@ class AccountSetting : AppCompatActivity() {
         }*/
     }
 
-    //==============testing================
-    override fun onResume()
-    {
-        super.onResume();
-
-        var username = intent.getStringExtra("recordUN")
-        println("Test if the user name can received = " + username)
-
-        val sql = "select Account_username,Account_password,Account_nameTitle,Account_fullname,Account_email,Account_address,Account_phone from Account where Account_username = '$username'";
-        findAccount(sql)
-        val checkNew = "select Account_fullname where Account_username = '$username'";
-        //println(AccountList) //print out for check the detail
-        //println("Test if the new data can received = " + sql)
-        //xml id:  Account_fullname = tv_UserName   Account_email = tv_email  Account_phone = tv_Phone   Account_address = tv_address
-        //println(AccountList[0].email)
-        val textView1 = findViewById<View>(R.id.tv_UserName) as TextView
-        val textView2 = findViewById<View>(R.id.tv_email) as TextView
-        val textView3 = findViewById<View>(R.id.tv_Phone) as TextView
-        val textView4 = findViewById<View>(R.id.tv_address) as TextView
-        textView1.text = AccountList[0].fullname
-        textView2.text = AccountList[0].email
-        textView3.text = AccountList[0].phone
-        textView4.text = AccountList[0].address
-        println("Test if the new user full can received = " + AccountList[0].fullname)
-
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)){
@@ -271,10 +246,14 @@ class AccountSetting : AppCompatActivity() {
         t.join()
     }
 
-    //override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        //val menuInflater = menuInflater
-        //menuInflater.inflate(R.menu.searchview, menu);
-        //return true
-    //}
-
+    override fun onBackPressed() {
+        val sendRecord = intent.getStringExtra("recordUN")
+        val intent = Intent(this, Homepage::class.java)
+        intent.putExtra("recordUN",sendRecord)
+        intent.putExtra("USERNAME",sendRecord)
+        startActivity(intent)
+        //println("starting backpress and the user name is " + sendRecord)
+        //overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+        //overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
+    }
 }
