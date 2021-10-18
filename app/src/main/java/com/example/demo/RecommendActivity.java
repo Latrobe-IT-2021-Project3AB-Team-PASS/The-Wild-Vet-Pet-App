@@ -36,6 +36,7 @@ public class RecommendActivity extends AppCompatActivity {
     NavigationView navigationView;
     private String questionType = "";
     private ArrayList<Question> questionList = new ArrayList<Question>();
+    private String sendRecord;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,7 +53,9 @@ public class RecommendActivity extends AppCompatActivity {
         Intent intent=getIntent();
         recommendId=intent.getStringExtra("recommendId");
         recommend=intent.getStringExtra("recommend");
+        sendRecord = getIntent().getStringExtra("recordUN");
         //获取Serializable 对象，并强转成 list集合
+        System.out.println("test for recomm : username : " + sendRecord);
         Serializable serializable = getIntent().getSerializableExtra("resultList");
         questionList = (ArrayList<Question>) serializable;  //接收的时候强转
         questionType = getIntent().getStringExtra("type");
@@ -97,6 +100,7 @@ public class RecommendActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RecommendActivity.this, Dss.class);
+                intent.putExtra("recordUN",sendRecord);
                 startActivity(intent);
                 finish();
             }
@@ -109,6 +113,7 @@ public class RecommendActivity extends AppCompatActivity {
                 Intent intent = new Intent(RecommendActivity.this, ResultActivity.class);
                 intent.putExtra("resultList", questionList);
                 intent.putExtra("type", questionType);
+                intent.putExtra("recordUN",sendRecord);
                 startActivity(intent);
                 finish();
             }
@@ -149,61 +154,73 @@ public class RecommendActivity extends AppCompatActivity {
                 {
                     case R.id.nav_pets:
                         Intent intent = new Intent(RecommendActivity.this, MyPets.class);
+                        intent.putExtra("USERNAME",sendRecord);
                         startActivity(intent);
                         break;
 
                     case R.id.nav_vaccination:
                         Intent intent1 = new Intent(RecommendActivity.this, vaccination.class);
+                        intent1.putExtra("recordUN",sendRecord);
                         startActivity(intent1);
                         break;
 
                     case R.id.nav_medication:
                         Intent intent2 = new Intent(RecommendActivity.this, Medication.class);
+                        intent2.putExtra("recordUN",sendRecord);
                         startActivity(intent2);
                         break;
 
                     case R.id.nav_checkup:
                         Intent intent3 = new Intent(RecommendActivity.this, CheckUps.class);
+                        intent3.putExtra("recordUN",sendRecord);
                         startActivity(intent3);
                         break;
 
                     case R.id.nav_news:
                         Intent intent4 = new Intent(RecommendActivity.this, News.class);
+                        intent4.putExtra("recordUN",sendRecord);
                         startActivity(intent4);
                         break;
 
                     case R.id.nav_parasite:
                         Intent intent5 = new Intent(RecommendActivity.this, ParasitePrevention.class);
+                        intent5.putExtra("recordUN",sendRecord);
                         startActivity(intent5);
                         break;
 
                     case R.id.nav_subscr:
                         Intent intent6 = new Intent(RecommendActivity.this, Subscription.class);
+                        intent6.putExtra("recordUN",sendRecord);
                         startActivity(intent6);
                         break;
 
                     case R.id.nav_contact:
                         Intent intent7 = new Intent(RecommendActivity.this, ContactUs.class);
+                        intent7.putExtra("recordUN",sendRecord);
                         startActivity(intent7);
                         break;
 
                     case R.id.nav_setting:
                         Intent intent8 = new Intent(RecommendActivity.this, AccountSetting.class);
+                        intent8.putExtra("recordUN",sendRecord);
                         startActivity(intent8);
                         break;
 
                     case R.id.nav_support:
                         Intent intent9 = new Intent(RecommendActivity.this, Support.class);
+                        intent9.putExtra("recordUN",sendRecord);
                         startActivity(intent9);
                         break;
 
                     case  R.id.nav_home:
                         Intent intent10 = new Intent(RecommendActivity.this, Homepage.class);
+                        intent10.putExtra("recordUN",sendRecord);
                         startActivity(intent10);
                         break;
 
                     case R.id.nav_logout:
                         Intent intent11 = new Intent(RecommendActivity.this,MainActivity.class);
+                        intent11.putExtra("recordUN",sendRecord);
                         startActivity(intent11);
                         finish();
                         break;

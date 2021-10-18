@@ -2,13 +2,9 @@ package com.example.demo
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import android.widget.CompoundButton
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.view.SwitchButton
 import kotlinx.android.synthetic.main.activity_dss.*
 import kotlinx.android.synthetic.main.activity_homepage.*
 import kotlinx.android.synthetic.main.activity_homepage.drawerLayout
@@ -27,13 +23,17 @@ class Dss : AppCompatActivity() {
         println("2")
 
         btnBreathing.setOnClickListener {
+            val sendRecord = intent.getStringExtra("recordUN")
             var intent: Intent = Intent(this@Dss, QuestionActivity::class.java)
             intent.putExtra("type", "Breathing")
+            intent.putExtra("recordUN", sendRecord)
             startActivity(intent)
         }
         btn_Vomiting_Diarrhoea.setOnClickListener {
+            val sendRecord = intent.getStringExtra("recordUN")
             var intent: Intent = Intent(this@Dss, QuestionActivity::class.java)
             intent.putExtra("type", "Vomiting")
+            intent.putExtra("recordUN", sendRecord)
             startActivity(intent)
         }
         var username = intent.getStringExtra("recordUN")

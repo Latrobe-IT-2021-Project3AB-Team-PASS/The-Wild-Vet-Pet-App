@@ -109,7 +109,7 @@ public class AddPet extends AppCompatActivity {
                     case R.id.nav_pets:
                         //String username = getIntent().getStringExtra("USERNAME");
                         Intent intent = new Intent(AddPet.this, MyPets.class);
-                        intent.putExtra("USERNAME",username);
+                        intent.putExtra("recordUN",username);
                         startActivity(intent);
                         break;
 
@@ -241,14 +241,15 @@ public class AddPet extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             if(isSuccess) {
-                Toast.makeText(AddPet.this, z, Toast.LENGTH_SHORT).show();
-            }
-            else{
                 String username = getIntent().getStringExtra("USERNAME");
                 Toast.makeText(AddPet.this, "Add Pet Details Sucessful", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MyPets.class);
                 intent.putExtra("USERNAME", username);
                 startActivity(intent);
+                finish();
+            }
+            else{
+                Toast.makeText(AddPet.this, z, Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -390,10 +391,7 @@ public class AddPet extends AppCompatActivity {
     private boolean validatePetnotes() {
         String val = Pet_Notes.getEditText().getText().toString().trim();
 
-        if (val.isEmpty()) {
-            Pet_Notes.setError("Field can not be empty");
-            return false;
-        } else if (val.length() > 100) {
+        if (val.length() > 100) {
             Pet_Notes.setError("Pet notes not more than 100 words");
             return false;
         } else {
