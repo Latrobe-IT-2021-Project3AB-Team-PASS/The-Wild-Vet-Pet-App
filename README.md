@@ -6,4 +6,4 @@ Admin can add health record for the pet.
 
 The app can run best performance with large than 6.3" android device.
 
-This project only allow for learning only. Please DO NOT COPY THIS PROJECT.
+This project only allow to use for learning only. Please DO NOT COPY THIS PROJECT.
