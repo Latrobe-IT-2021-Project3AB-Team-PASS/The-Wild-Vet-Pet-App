@@ -38,12 +38,6 @@ class AccountSetting_email : AppCompatActivity()  {
         val getText = findViewById<TextInputLayout>(R.id.updateEmail)
         val Update_email = getText.getEditText()?.getText();
 
-        //UPDATE Account SET Account_email = '444' WHERE Account_username = 'testuser';
-        //val sql = "UPDATE Account SET Account_email = '$Update_email' WHERE Account_username = '$Id'";
-
-        //select Account_email where Account_username = 'testuser';
-        //val checkNew = "select Account_email where Account_username = '$Id'";
-
         btnUpdate.setOnClickListener(View.OnClickListener {
             val sql = "UPDATE Account SET Account_email = '$Update_email' WHERE Account_username = '$Id'";
             val checkNew = "select Account_email from Account where Account_username = '$Id'";
@@ -57,7 +51,6 @@ class AccountSetting_email : AppCompatActivity()  {
             textView2.text = NewList[0].email
             Toast.makeText(this,"Update success", Toast.LENGTH_LONG).show()
         })
-
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)

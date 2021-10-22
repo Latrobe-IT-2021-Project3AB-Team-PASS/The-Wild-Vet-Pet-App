@@ -6,11 +6,6 @@ import java.text.DateFormat;
 
 public class CheckUps_petCheckUpDetail {
 
-    //for CheckUpsDetail.CheckUpsListDetail.java使用.
-    //用来get or set判定数据类型以便于获取/设置数据
-    //select Pet_id,Vet_fullname,Checkups_type,Checkups_date,Checkups_notes from Checkups where Pet_id = 'returned pet id';
-    //Pet_id = String, Vet_fullname = String, Checkups_type = String, Checkups_date = Date, Checkups_notes = String
-
     private String id;
     private String vetfullname;
     private String checkupstype;

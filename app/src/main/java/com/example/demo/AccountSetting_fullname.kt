@@ -16,9 +16,6 @@ import kotlinx.android.synthetic.main.account_setting_fullname.*
 
 class AccountSetting_fullname : AppCompatActivity(){
 
-    //var btnUpdate: Button? = null
-    //var Update_username: TextInputLayout? = null
-
     lateinit var toggle: ActionBarDrawerToggle
 
     val NewList: MutableList<AccountSetting_List> = mutableListOf()
@@ -45,12 +42,6 @@ class AccountSetting_fullname : AppCompatActivity(){
         val Update_username = getText.getEditText()?.getText();
 
 
-        //UPDATE Account SET Account_fullname = '444' WHERE Account_username = 'testuser';
-        //val sql = "UPDATE Account SET Account_fullname = '$Update_username' WHERE Account_username = '$Id'";
-
-        //select Account_fullname where Account_username = 'testuser';
-        //val checkNew = "select Account_fullname where Account_username = '$Id'";
-
 
         btnUpdate.setOnClickListener(View.OnClickListener {
             val sql = "UPDATE Account SET Account_fullname = '$Update_username' WHERE Account_username = '$Id'";
@@ -64,10 +55,7 @@ class AccountSetting_fullname : AppCompatActivity(){
             val textView2 = findViewById<View>(R.id.tv_UserName) as TextView
             textView2.text = NewList[0].username
             Toast.makeText(this,"Update success",Toast.LENGTH_LONG).show()
-            //val sendRecord = intent.getStringExtra("username")
-            //val intent = Intent(this, AccountSetting::class.java)
-            //intent.putExtra("recordUN",sendRecord)
-            //startActivity(intent)
+
         })
 
 

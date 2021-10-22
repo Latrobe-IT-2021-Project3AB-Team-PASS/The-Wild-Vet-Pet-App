@@ -111,7 +111,7 @@
             android:paddingTop="15dp"
             android:paddingRight="10dp"
             android:paddingBottom="15dp"
-            android:text="Vomiting/Diarrhoea"
+            android:text="Vomiting/Diarrhea"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16dp"

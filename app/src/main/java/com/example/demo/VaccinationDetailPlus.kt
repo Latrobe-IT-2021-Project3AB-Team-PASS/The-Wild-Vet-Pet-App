@@ -12,14 +12,12 @@ import kotlinx.android.synthetic.main.activity_homepage.*
 class VaccinationDetailPlus : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
 
-    //Vaccination 3级页面.用于展示更详细的疫苗信息
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vaccination_detail_plus)
 
         val bundle = intent.extras
-        //type : textView9 , date: textView11 ,vaccine: textView13 , vet name: textView18  ,  due day : textView19
+
         val textView1 = findViewById<View>(R.id.textView9) as TextView
         val textView2 = findViewById<View>(R.id.textView11) as TextView
         val textView3 = findViewById<View>(R.id.textView13) as TextView

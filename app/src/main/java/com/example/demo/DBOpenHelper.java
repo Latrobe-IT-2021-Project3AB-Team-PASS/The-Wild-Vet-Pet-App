@@ -13,12 +13,10 @@ import java.sql.*;
         public static Connection connection = null;
         public static PreparedStatement preparedStatement = null;
         public static ResultSet resultSet = null;
-        /*
-         * connect database
-         * */
+
         public static Connection getConn(){
             try {
-                //Class.forName(diver);
+
                 Class.forName(diver).newInstance();
                 connection = DriverManager.getConnection(url,user,password);//getConnection
             } catch (ClassNotFoundException e) {

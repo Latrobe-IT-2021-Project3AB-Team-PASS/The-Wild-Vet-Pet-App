@@ -13,8 +13,8 @@ public class ConnectionHelper {
     {
         diver = "com.mysql.cj.jdbc.Driver";
         url = "jdbc:mysql://aws-thewildvet.ctgmk9otetzz.ap-southeast-2.rds.amazonaws.com:3306/TheWildVetDB?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false";
-        user = "root";//用户名"
-        password = "rootroot";//密码
+        user = "root";//username"
+        password = "rootroot";//password
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -24,7 +24,7 @@ public class ConnectionHelper {
         try
         {
             Class.forName(diver);
-            connection = DriverManager.getConnection(url,user,password);//获取连接
+            connection = DriverManager.getConnection(url,user,password);//get connection
         }
         catch (Exception e){
             Log.e("Error", e.getMessage());

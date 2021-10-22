@@ -39,12 +39,6 @@ class AccountSetting_phone : AppCompatActivity()  {
         val getText = findViewById<TextInputLayout>(R.id.updatePhone)
         val Update_phone = getText.getEditText()?.getText();
 
-        //UPDATE Account SET Account_phone = '444' WHERE Account_username = 'testuser';
-        //val sql = "UPDATE Account SET Account_phone = '$Update_phone' WHERE Account_username = '$Id'";
-
-        //select Account_phone where Account_username = 'testuser';
-        //val checkNew = "select Account_phone where Account_username = '$Id'";
-
         btnUpdate.setOnClickListener(View.OnClickListener {
 
 

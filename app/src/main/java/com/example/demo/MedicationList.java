@@ -14,12 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *Medication首页展示数据
- */
-public class MedicationList extends BaseAdapter {
 
-    //Medication里的动态列表 包含列表信息和转跳判定
+public class MedicationList extends BaseAdapter {
 
     private Context context;
     private List<Medication_pet> list = new ArrayList<>(0);
@@ -46,12 +42,10 @@ public class MedicationList extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        // 适配 页面
         ViewHolder viewHolder;
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.medication_list,null);
-            //viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
             viewHolder.textView = (TextView) view.findViewById(R.id.tvName);
             view.setTag(viewHolder);
         }else {
@@ -61,8 +55,6 @@ public class MedicationList extends BaseAdapter {
         Medication_pet medi = list.get(position);
 
         viewHolder.textView.setText(medi.getName());
-        //viewHolder.imageView.setImageResource(setImage(pet.getImage()));
-        //disable image for right now due to image still not fixed yet.
 
         viewHolder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,35 +63,12 @@ public class MedicationList extends BaseAdapter {
                 bundle.putString("petid",medi.getId());
                 bundle.putString("petname",medi.getName());
                 bundle.putString("recordUN",medi.getAccountname());
-
-                //bundle.putString("age",pet.getAge().toString());
-                //bundle.putString("type", pet.getType());
-                //String sex = "1".equals(pet.getSex())?"男":"女";
-                //bundle.putString("sex", sex);
                 Intent intent = new Intent(context, MedicationDetail.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
-        /*viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("petid",medi.getId());
-                bundle.putString("petname",medi.getName());
-                //bundle.putString("age",pet.getAge().toString());
-                //bundle.putString("type", pet.getType());
-                //String sex = "1".equals(pet.getSex())?"男":"女";
-                //bundle.putString("sex", sex);
-                Intent intent = new Intent(context, MedicationDetail.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });*/
-
-
         return view;
     }
 

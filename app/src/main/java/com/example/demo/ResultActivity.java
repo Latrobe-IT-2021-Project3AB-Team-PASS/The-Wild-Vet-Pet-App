@@ -52,13 +52,13 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //需要设置这个 flag 才能调用 setStatusBarColor 来设置状态栏颜色
+
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             getWindow().setNavigationBarColor(getResources().getColor(R.color.purple_500));
             getWindow().setStatusBarColor(getResources().getColor(R.color.purple_500));
         }
 
-        //获取Serializable 对象，并强转成 list集合
+
         Serializable serializable = getIntent().getSerializableExtra("resultList");
         questionList = (ArrayList<Question>) serializable;  //接收的时候强转
 
@@ -108,14 +108,6 @@ public class ResultActivity extends AppCompatActivity {
         recyclerView.setAdapter(cardAdapter);
         cardAdapter.notifyDataSetChanged();
 
-//        cardAdapter.setOnItemClickListener(new OnItemClickListener() {
-//            public void onItemClick(View view, int position) {
-//                Intent intent = new Intent(ResultActivity.this, QuestionActivity.class);
-//                intent.putExtra("position",position);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
 
         cardAdapter.setOnButtonClickListener(new OnItemClickListener() {
             @Override
@@ -149,27 +141,18 @@ public class ResultActivity extends AppCompatActivity {
 
     private void initMenu() {
         DrawerLayout mDrawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
-//        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open,R.string.close);
-//        mActionBarDrawerToggle.setDrawerIndicatorEnabled(true);
-////        mActionBarDrawerToggle.setHomeAsUpIndicator(R.mipmap.ic_launcher);//channge the icon,改变图标
-//        mActionBarDrawerToggle.syncState();
-//        mDrawerLayout.setDrawerListener(mActionBarDrawerToggle);//关联 drawerlayout
 
         Toolbar toolbar = findViewById(R.id.drawer_layout_rl_toolbar);
-        setSupportActionBar(toolbar);                   //传入ToolBar实例
-        ActionBar actionBar = getSupportActionBar();    //得到ActionBar实例
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null){
-            //显示导航按钮
             actionBar.setDisplayHomeAsUpEnabled(true);
-            //设置导航按钮图片
             actionBar.setHomeAsUpIndicator(R.drawable.line);
         }
-        //设置toolbar的导航按钮监听事件
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //显示侧滑菜单
                 mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });

@@ -39,7 +39,7 @@ class Homepage : AppCompatActivity(){
             val intent = Intent(this, vaccination::class.java)
             intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
-            //startActivity(Intent(this, vaccination::class.java))  //old
+
 
         }
 
@@ -48,7 +48,7 @@ class Homepage : AppCompatActivity(){
             val intent = Intent(this, Medication::class.java)
             intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
-            //startActivity(Intent(this, Medication::class.java))
+
         }
 
         btnParasite.setOnClickListener {
@@ -56,7 +56,7 @@ class Homepage : AppCompatActivity(){
             val intent = Intent(this, ParasitePrevention::class.java)
             intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
-            //startActivity(Intent(this, ParasitePrevention::class.java))
+
         }
 
         btnCheckUps.setOnClickListener {
@@ -64,7 +64,7 @@ class Homepage : AppCompatActivity(){
             val intent = Intent(this, CheckUps::class.java)
             intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
-            //startActivity(Intent(this, CheckUps::class.java))
+
         }
 
         btnNews.setOnClickListener {
@@ -85,7 +85,7 @@ class Homepage : AppCompatActivity(){
             val intent = Intent(this, AccountSetting::class.java)
             intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
-            //startActivity(Intent(this, AccountSetting::class.java))
+
         }
 
         btnSupport.setOnClickListener {
@@ -93,8 +93,7 @@ class Homepage : AppCompatActivity(){
             val intent = Intent(this, Dss::class.java)
             intent.putExtra("recordUN",sendRecord)
             startActivity(intent)
-            //startActivity(Intent(this, Dss::class.java))
-//            startActivity(Intent(this, QuestionActivity::class.java))
+
         }
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)

@@ -57,11 +57,6 @@ public class SetNewPassword extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
     }
 
-    /*public void SubmitNewPassword(View view){
-        Intent intent = new Intent(getApplicationContext(),ForgetPasswordSuccessMessage.class);
-        startActivity(intent);
-    }*/
-
     public class SubmitPass extends AsyncTask<String,String,String>
     {
         String z = "";
@@ -112,5 +107,11 @@ public class SetNewPassword extends AppCompatActivity {
             }
             return z;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent back = new Intent(SetNewPassword.this,ForgetPassword.class);
+        startActivity(back);
+        finish();
     }
 }

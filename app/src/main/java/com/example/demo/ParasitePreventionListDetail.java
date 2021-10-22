@@ -20,9 +20,6 @@ import java.util.List;
 
 public class ParasitePreventionListDetail extends BaseAdapter {
 
-    //for show more detail about the selected pets ParasitePrevention
-    //ParasitePreventionDetail里的动态列表 包含列表信息和转跳判定
-
     private Context context;
     private List<ParasitePrevention_petPPDetail> list = new ArrayList<>(0);
 
@@ -47,12 +44,10 @@ public class ParasitePreventionListDetail extends BaseAdapter {
     }
 
     public View getView(int position, View view, ViewGroup parent){
-        // 适配 页面
         ViewHolder viewHolder;
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.parasite_prevention_list_detail,null);
-            //viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
             viewHolder.textView = (TextView) view.findViewById(R.id.tvLefttest);
             viewHolder.textView1 = (TextView) view.findViewById(R.id.tvMiddletest);
             viewHolder.textView3 = (TextView) view.findViewById(R.id.tvRighttest);
@@ -68,9 +63,6 @@ public class ParasitePreventionListDetail extends BaseAdapter {
 
         return view;
     }
-
-
-
 
     class ViewHolder{
         TextView textView;

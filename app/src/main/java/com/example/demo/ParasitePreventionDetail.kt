@@ -15,9 +15,6 @@ class ParasitePreventionDetail : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
 
-    //获取数据库数据  集合
-
-    //ParasitePrevention 二级页面 - 展示宠物的疫苗信息.
     val PPList: MutableList<ParasitePrevention_petPPDetail> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +29,8 @@ class ParasitePreventionDetail : AppCompatActivity() {
         val textView1 = findViewById<View>(R.id.PetTittle) as TextView
         textView1.text = sentName + "'s Parasite Prevention"
 
-        //select Pet_id,Medi_product, Medi_purchasedate from Medication where Pet_id = '$sendId'
         val sql = "select Pet_id,PP_date,PP_product,PP_fuequency,Account_username from ParasitePrevention where Pet_id = '$sendId'";
-        //val sql = "select * from testpet"
-        //  数据库获取 数据
+
         findPets(sql)
         println("petid=" + sentName)
         println(PPList)
@@ -114,37 +109,23 @@ class ParasitePreventionDetail : AppCompatActivity() {
     }
 
     fun findPets(sql: String?) {
-        //  开辟子线程 数据查询
         val t: Thread = object : Thread() {
             override fun run() {
-                // 获取 连接
                 val connection = DBOpenHelper.getConn()
-                // 预 执行 sql
                 val preparedStatement = connection!!.prepareStatement(sql)
-                // 执行 查询 获取 数据集合
                 val resultSet = preparedStatement.executeQuery()
                 while (resultSet.next()) {
                     var PP = ParasitePrevention_petPPDetail()
-                    //select Pet_id,Medi_product, Medi_purchasedate from Medication where Pet_id = '$sendId'
-                    //pet.id = resultSet.getInt("id")
                     PP.id = resultSet.getString("Pet_id")
                     PP.ppdate = resultSet.getDate("PP_date")
                     PP.ppproduct = resultSet.getString("PP_product")
                     PP.ppfuequency = resultSet.getString("PP_fuequency")
                     PP.accountname = resultSet.getString("Account_username")
-                    //pet.sex = resultSet.getString("sex")
-                    //pet.age = resultSet.getInt("age")
-                    //pet.type = resultSet.getString("type")
-                    //放入集合
                     PPList.add(PP)
                 }
-                // 关闭连接
-                //DBOpenHelper().closeAll()
             }
         }
-        // 启动线程
         t.start()
-        //调用join方法，等待线程t执行完毕
         t.join()
     }
 }

@@ -38,11 +38,7 @@ class AccountSetting_password : AppCompatActivity()  {
         val getText = findViewById<TextInputLayout>(R.id.updatePassword)
         val Update_password = getText.getEditText()?.getText();
 
-        //UPDATE Account SET Account_password = '444' WHERE Account_username = 'testuser';
-        //val sql = "UPDATE Account SET Account_password = '$Update_password' WHERE Account_username = '$Id'";
 
-        //select Account_password where Account_username = 'testuser';
-        //val checkNew = "select Account_password where Account_username = '$Id'";
 
         btnUpdate.setOnClickListener(View.OnClickListener {
             val sql = "UPDATE Account SET Account_password = '$Update_password' WHERE Account_username = '$Id'";

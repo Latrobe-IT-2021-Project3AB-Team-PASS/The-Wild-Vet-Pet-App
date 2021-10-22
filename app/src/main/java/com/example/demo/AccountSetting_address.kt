@@ -39,12 +39,6 @@ class AccountSetting_address : AppCompatActivity()  {
         val getText = findViewById<TextInputLayout>(R.id.updateAddress)
         val Update_address = getText.getEditText()?.getText();
 
-        //UPDATE Account SET Account_address = '444' WHERE Account_username = 'testuser';
-        //val sql = "UPDATE Account SET Account_address = 'Update_address' WHERE Account_username = '$Id'";
-
-        //select Account_address where Account_username = 'testuser';
-        //val checkNew = "select Account_address where Account_username = '$Id'";
-
         btnUpdate.setOnClickListener(View.OnClickListener {
             val sql = "UPDATE Account SET Account_address = '$Update_address' WHERE Account_username = '$Id'";
             val checkNew = "select Account_address from Account where Account_username = '$Id'";

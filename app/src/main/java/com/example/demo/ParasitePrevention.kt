@@ -13,36 +13,28 @@ import kotlinx.android.synthetic.main.activity_parasite_prevention.lvList
 class ParasitePrevention : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
-    //获取数据库数据  集合
-    //Medication 主页面 - 展示用户下的宠物列表.
+
     val petList: MutableList<ParasitePrevention_pet> = mutableListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        //跳转页面
+
         setContentView(R.layout.activity_parasite_prevention)
         val sendRecord = intent.getStringExtra("recordUN")
 
-        //val sql = "select * from pet"
         val sql = "select Pet_id,Pet_image,Pet_name,Account_username from Pet where Account_username = '$sendRecord'";
-        //val sql = "select * from testpet"
-        //  数据库获取 数据
 
         findPets(sql)
         println("username=" + sendRecord)
         println(petList)
 
-        // 自定义 适配器
         val ParasitePreventionList: ParasitePreventionList = ParasitePreventionList(this,petList)
         lvList.setAdapter(ParasitePreventionList)
         lvList.setOnItemClickListener { parent, view, position, id ->
             Toast.makeText(this,"Click item" + position,Toast.LENGTH_SHORT).show()
         }
-
-
-
 
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -115,36 +107,23 @@ class ParasitePrevention : AppCompatActivity() {
     }
 
     fun findPets(sql: String?) {
-        //  开辟子线程 数据查询
         val t: Thread = object : Thread() {
             override fun run() {
-                // 获取 连接
                 val connection = DBOpenHelper.getConn()
-                // 预 执行 sql
                 val preparedStatement = connection!!.prepareStatement(sql)
-                // 执行 查询 获取 数据集合
                 val resultSet = preparedStatement.executeQuery()
                 while (resultSet.next()) {
                     var pet = ParasitePrevention_pet()
-                    //select Pet_id,Pet_image,Pet_name from Pet where Account_username = 'login account';
-                    //pet.id = resultSet.getInt("id")
                     pet.id = resultSet.getString("Pet_id")
                     pet.image = resultSet.getString("Pet_image")
                     pet.name = resultSet.getString("Pet_name")
                     pet.accountname = resultSet.getString("Account_username")
-                    //pet.sex = resultSet.getString("sex")
-                    //pet.age = resultSet.getInt("age")
-                    //pet.type = resultSet.getString("type")
-                    //放入集合
                     petList.add(pet)
                 }
-                // 关闭连接
-                //DBOpenHelper().closeAll()
+
             }
         }
-        // 启动线程
         t.start()
-        //调用join方法，等待线程t执行完毕
         t.join()
     }
 }

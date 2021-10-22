@@ -17,9 +17,6 @@ import java.util.List;
 
 public class VaccinationListDetail extends BaseAdapter{
 
-    //for show more detail about the selected pets vaccination
-    //VaccinationDetail里的动态列表 包含列表信息和转跳判定
-
     private Context context;
     private List<Vaccination_petsVaccDetail> list = new ArrayList<>(0);
 
@@ -45,12 +42,11 @@ public class VaccinationListDetail extends BaseAdapter{
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        // 适配 页面
+
         ViewHolder viewHolder;
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.vaccination_list_detail,null);
-            //viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
             viewHolder.textView = (TextView) view.findViewById(R.id.tvName);
             view.setTag(viewHolder);
         }else {
@@ -60,53 +56,25 @@ public class VaccinationListDetail extends BaseAdapter{
         Vaccination_petsVaccDetail pet = list.get(position);
         viewHolder.textView.setText(pet.getVacctype());
 
-        //viewHolder.imageView.setImageResource(setImage(pet.getImage()));
-        //disable image for right now due to image still not fixed yet.
-
         viewHolder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                // Vacc_type = String, Vacc_date = Date, Vacc_productname = String, Vacc_name = String, Vacc_dueday = DATE
                 bundle.putString("vacctype",pet.getVacctype());
                 bundle.putString("Vaccdate",pet.getVaccdate().toString());
                 bundle.putString("vaccproductname",pet.getVaccproductname());
                 bundle.putString("vaccname",pet.getVaccname());
                 bundle.putString("dueday",pet.getVaccdueday().toString());
                 bundle.putString("recordUN",pet.getAccountname());
-                //bundle.putString("age",pet.getAge().toString());
-                //bundle.putString("type", pet.getType());
-                //String sex = "1".equals(pet.getSex())?"男":"女";
-                //bundle.putString("sex", sex);
                 Intent intent = new Intent(context, VaccinationDetailPlus.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
-        /*viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                // Vacc_type = String, Vacc_date = Date, Vacc_productname = String, Vacc_name = String, Vacc_dueday = DATE
-                bundle.putString("vacctype",pet.getVacctype());
-                bundle.putString("Vaccdate",pet.getVaccdate().toString());
-                bundle.putString("vaccproductname",pet.getVaccproductname());
-                bundle.putString("vaccname",pet.getVaccname());
-                bundle.putString("dueday",pet.getVaccdueday().toString());
-                //bundle.putString("sex", sex);
-                Intent intent = new Intent(context, VaccinationDetailPlus.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });*/
-
 
         return view;
     }
-
-
 
     public Integer setImage(String image){
         if (null==image || "".equals(image) || 0==image.length()){
@@ -122,11 +90,6 @@ public class VaccinationListDetail extends BaseAdapter{
         }
     }
 
-
-
-    /**
-     *  vaccination_list  中  组件
-     */
     class ViewHolder{
         TextView textView;
         ImageView imageView;

@@ -15,8 +15,6 @@ import java.util.List;
 
 public class ParasitePreventionList extends BaseAdapter {
 
-    //ParasitePrevention 里的动态列表 包含列表信息和转跳判定
-
     private Context context;
     private List<ParasitePrevention_pet> list = new ArrayList<>(0);
 
@@ -43,12 +41,11 @@ public class ParasitePreventionList extends BaseAdapter {
     @Override
 
     public View getView(int position, View view, ViewGroup parent) {
-        // 适配 页面
+
         ViewHolder viewHolder;
         if (view == null){
             viewHolder = new ViewHolder();
             view = LayoutInflater.from(context).inflate(R.layout.parasite_prevention_list,null);
-            //viewHolder.imageView = (ImageView) view.findViewById(R.id.tvImage);
             viewHolder.textView = (TextView) view.findViewById(R.id.tvName);
             view.setTag(viewHolder);
         }else {
@@ -58,8 +55,6 @@ public class ParasitePreventionList extends BaseAdapter {
         ParasitePrevention_pet PP = list.get(position);
 
         viewHolder.textView.setText(PP.getName());
-        //viewHolder.imageView.setImageResource(setImage(pet.getImage()));
-        //disable image for right now due to image still not fixed yet.
 
         viewHolder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,33 +63,12 @@ public class ParasitePreventionList extends BaseAdapter {
                 bundle.putString("petid",PP.getId());
                 bundle.putString("petname",PP.getName());
                 bundle.putString("recordUN",PP.getAccountname());
-                //bundle.putString("age",pet.getAge().toString());
-                //bundle.putString("type", pet.getType());
-                //String sex = "1".equals(pet.getSex())?"男":"女";
-                //bundle.putString("sex", sex);
                 Intent intent = new Intent(context, ParasitePreventionDetail.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });
-        /*viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("petid",PP.getId());
-                bundle.putString("petname",PP.getName());
-                //bundle.putString("age",pet.getAge().toString());
-                //bundle.putString("type", pet.getType());
-                //String sex = "1".equals(pet.getSex())?"男":"女";
-                //bundle.putString("sex", sex);
-                Intent intent = new Intent(context, ParasitePreventionDetail.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
-            }
-        });*/
-
 
         return view;
     }

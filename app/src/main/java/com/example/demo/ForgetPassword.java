@@ -53,11 +53,6 @@ public class ForgetPassword extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
     }
 
-    /*public void SubmitEmailForgetPassword(View view){
-        Intent intent = new Intent(getApplicationContext(),SetNewPassword.class);
-        startActivity(intent);
-    }*/
-
     public class CheckEmail extends AsyncTask<String,String,String>
     {
         String z = "";

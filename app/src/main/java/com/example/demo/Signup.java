@@ -37,11 +37,6 @@ public class Signup extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_signup);
 
-        /*// calling the action bar
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);*/
 
         //Hooks
         btnRegSubmit = findViewById(R.id.btnRegSubmit);
@@ -162,11 +157,6 @@ public class Signup extends AppCompatActivity {
     private boolean validatePassword(){
         String val = Account_password.getEditText().getText().toString().trim();
         String checkPassword = "^(?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
-        //"^"+
-        //"(?=.*[a-zA-Z])" +              //any letter
-        //"(?=\\S+$)" +                   //no white spaces
-        //"(.{4,})" +                     //at least 4 characters
-        //"$";
 
         if(val.isEmpty()){
             Account_password.setError("Field can not be empty");
@@ -192,18 +182,6 @@ public class Signup extends AppCompatActivity {
             return true;
         }
     }
-
-    /*private boolean validateNametitle(){
-        String val = Account_nametitle.getEditText().getText().toString();
-
-        if(val.contains("Mr") ||  val.contains("Madam") ||  val.contains("Miss")){
-            return true;
-        }
-        else{
-            Account_nametitle.setError("Please fill in the right Name Title");
-            return false;
-        }
-    }*/
 
     private boolean validateFullname(){
         String val = Account_fullname.getEditText().getText().toString().trim();

@@ -2,8 +2,8 @@ package com.example.demo;
 
 public class AccountSetting_List {
 
-    //for AccountSetting.ket和VaccinationListDetail.java使用.
-    //用来get or set判定数据类型以便于获取/设置数据
+    //for AccountSetting.ket和VaccinationListDetail.java used.
+    //Use get or set for get/set data
     //select Account_username,Account_password,Account_nameTitle,Account_fullname,Account_email,Account_address,Account_phone from Account where Account_username = 'username';
     //Account_username = String, Account_password = String, Account_nameTitle = String,
     //Account_fullname = String, Account_email = String, Account_address = String,

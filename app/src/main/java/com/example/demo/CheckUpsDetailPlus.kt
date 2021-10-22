@@ -12,14 +12,12 @@ import kotlinx.android.synthetic.main.activity_homepage.*
 class CheckUpsDetailPlus : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
 
-    //CheckUps 3级页面.用于展示更详细的体检信息
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_check_ups_detail_plus)
 
         val bundle = intent.extras
-        //type : textView9 , date: textView11 ,vet name: textView18 , notes: textView19
+
         val textView1 = findViewById<View>(R.id.textView9) as TextView
         val textView2 = findViewById<View>(R.id.textView11) as TextView
         val textView3 = findViewById<View>(R.id.textView18) as TextView
@@ -30,14 +28,9 @@ class CheckUpsDetailPlus : AppCompatActivity() {
         textView4.text = bundle.getString("checkupsnotes")
         val sendRecord = bundle.getString("recordUN")
 
-
-
-
-
         toggle = ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

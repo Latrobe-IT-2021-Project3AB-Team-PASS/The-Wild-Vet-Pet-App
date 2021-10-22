@@ -84,12 +84,12 @@ class Subscription : AppCompatActivity() {
         sw_Subscription1.setOnCheckedChangeListener(SwitchButton.OnCheckedChangeListener { buttonView, isChecked ->
             // TODO Auto-generated method stub
             if (isChecked) {
-                //打开
-//                Toast.makeText(this@MainActivity, "开启", Toast.LENGTH_LONG).show()
+                //open
+//                Toast.makeText(this@MainActivity, "open", Toast.LENGTH_LONG).show()
 //                isOpenAll = true
             } else {
-                // 关闭
-//                Toast.makeText(this@MainActivity, "关闭", Toast.LENGTH_LONG).show()
+                // close
+//                Toast.makeText(this@MainActivity, "close", Toast.LENGTH_LONG).show()
 //                isOpenAll = false
             }
         })

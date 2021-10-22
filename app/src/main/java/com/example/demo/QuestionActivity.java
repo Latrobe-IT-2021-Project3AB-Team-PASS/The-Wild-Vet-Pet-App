@@ -107,33 +107,25 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private void initMenu() {
 
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
-//        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open,R.string.close);
-//        mActionBarDrawerToggle.setDrawerIndicatorEnabled(true);
-////        mActionBarDrawerToggle.setHomeAsUpIndicator(R.mipmap.ic_launcher);//channge the icon,改变图标
-//        mActionBarDrawerToggle.syncState();
-//        mDrawerLayout.setDrawerListener(mActionBarDrawerToggle);//关联 drawerlayout
 
         Toolbar toolbar = findViewById(R.id.drawer_layout_rl_toolbar);
-        setSupportActionBar(toolbar);                   //传入ToolBar实例
-        ActionBar actionBar = getSupportActionBar();    //得到ActionBar实例
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null){
-            //显示导航按钮
             actionBar.setDisplayHomeAsUpEnabled(true);
-            //设置导航按钮图片
             actionBar.setHomeAsUpIndicator(R.drawable.line);
         }
-        //设置toolbar的导航按钮监听事件
+
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //显示侧滑菜单
                 mDrawerLayout.openDrawer(GravityCompat.START);
             }
         });
 
         navigationView = (NavigationView) findViewById(R.id.nav_View);
-//        View headView = navigationView.getHeaderView(0);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -219,11 +211,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         });
     }
 
-
     private void initView() {
-
         num = 5;
-
 
         editPos = getIntent().getIntExtra("position",-1);
         pb = findViewById(R.id.pb);
@@ -271,12 +260,11 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         cb6 = root.findViewById(R.id.cb_choice6);
 
         int count = pos + 1;
-//        tvTitle.setText(count + " of 5");
-        //修改答案
+
         if(editPos != -1){
-            //获取Serializable 对象，并强转成 list集合
+
             Serializable serializable = getIntent().getSerializableExtra("resultList");
-            answerList = (ArrayList<Question>) serializable;  //接收的时候强转
+            answerList = (ArrayList<Question>) serializable;
 
             String editId = answerList.get(editPos).getId();
 
@@ -373,11 +361,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             cb5.setVisibility(View.GONE);
             cb6.setVisibility(View.GONE);
         }
-
-
-//        answer = questionList.get(index).getAnswer();
-
-//        pb.setProgress(pos);
 
         answerList.add(questionList.get(index));
 
@@ -522,7 +505,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -626,7 +608,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         return hasNext;
     }
 
-
     private void saveExam() {
         Intent intent = new Intent(this, RecommendActivity.class);
         intent.putExtra("recommendId", recommendId);
@@ -652,8 +633,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         return super.onOptionsItemSelected(item);
     }
 
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -673,8 +652,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
-
     private void initData() {
         questionList.clear();
         questionType = getIntent().getStringExtra("type");
@@ -684,8 +661,6 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
             Breathing();
         }
     }
-
-
 
     private void Breathing() {
         questionList.clear();
